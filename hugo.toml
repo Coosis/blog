@@ -2,3 +2,11 @@ baseURL = 'https://coosis.github.io/blog/'
 languageCode = 'en-us'
 title = "Coosis's Blog"
 theme="beautifulhug"
+
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+
+logo = "img/ClearHead2.png"
+
+[Params]
+    useHLJS = true
