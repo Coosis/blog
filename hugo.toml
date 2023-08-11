@@ -7,6 +7,6 @@ pygmentsUseClasses = true
 pygmentsCodeFences = true
 
 [Params]
-    logo = "img/ClearHead2.png"
+    logo = "img/GreyHead2.png"
 
     useHLJS = true
