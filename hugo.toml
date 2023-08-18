@@ -10,3 +10,19 @@ pygmentsCodeFences = true
     logo = "img/GreyHead2.png"
     subtitle = "Coding related, mostly"
     useHLJS = true
+
+
+[[menu.main]]
+    name = "Blog"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "page/about/"
+    weight = 3
+    
+[[menu.main]]
+    name = "Tags"
+    url = "tags"
+    weight = 3
