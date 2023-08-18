@@ -1,6 +1,6 @@
 ---
 title: About Me
-subtitle: Why you'd want to go on a date with me
+subtitle: Who am I? What do I do?
 comments: false
 ---
 
@@ -11,7 +11,7 @@ My name is Coosis. I enjoy coding.
 
 What else do you need?
 
-### my history
+### My History
 
 I have been playing around with my computer for as long as I can remember. 
 I have used game engines like RPGMaker, Unity, Godot, GameMaker, and even framework like Monogame.
