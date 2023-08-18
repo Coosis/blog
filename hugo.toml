@@ -8,4 +8,5 @@ pygmentsCodeFences = true
 
 [Params]
     logo = "img/GreyHead2.png"
+    subtitle = "Coding related, mostly"
     useHLJS = true
