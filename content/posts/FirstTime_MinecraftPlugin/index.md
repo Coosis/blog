@@ -79,7 +79,7 @@ Note that I put nothing in the second and third constructor of Command class, th
 {{< gallery caption-effect="fade" >}}
   {{< figure thumb="-thumb" link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
   {{< figure src="/img/ErrorLog.jpg" link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
-  {{< figure link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
+  {{< figure src="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
 {{< /gallery >}}
 Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task. Also, you need kotlin to use JVM the same version as java, in this case, 17. So go to build,gradle and add this(if the code already exists, just change the number accordingly):
 ```
