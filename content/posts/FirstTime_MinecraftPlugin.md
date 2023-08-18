@@ -75,7 +75,10 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 }
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
+![ErrorLog](/img/ErrorLog.png "ErrorLog")
 {{< gallery caption-effect="fade" >}}
   {{< figure src="/img/ErrorLog.png" caption="ErrorLog" alt="A screenshot of the error log." >}}
 {{< /gallery >}}
 Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task.
+A java.lang.NoClassDefFoundError! How could this be?
+After searching aimlessly for hours, I was told gradle did not put kotlin libs into the .jar file, and that I need to use an extension called: []()
