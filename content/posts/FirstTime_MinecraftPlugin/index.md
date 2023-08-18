@@ -6,7 +6,7 @@ tags: ["Minecraft", "Plugin"]
 ---
 
 # Before Everything Else:
-A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn't really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server. The reason why I chose papermc is that it seems newest, with a out-standing performance and detailed documentation. Now of course, with a server able to run plugins, I wasn't going to just download everyone else's plugins. I decided to write my own.
+A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn't really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server. The reason why I chose papermc is that it seems newest, with an out-standing performance and detailed documentation. Now of course, with a server able to run plugins, I wasn't going to just download everyone else's plugins. I decided to write my own.
 
 # Maven or Gradle?
 Before I could set up my project, I need to decide which build tool to use: [Gradle](https://docs.gradle.org/current/userguide/userguide.html), or [Maven](https://maven.apache.org/what-is-maven.html)? To my understanding, Gradle is newer, Maven is rich on the resources side. But in the end I chose Gradle, because Gradle seemed to support most of Maven's repositories.
@@ -75,16 +75,11 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 }
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
-![ErrorLog](/img/ErrorLog.jpg)
+![ErrorLog](ErrorLog.jpg)
 {{< gallery caption-effect="fade" >}}
-  {{< figure link="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
-  {{< figure link="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
-  {{< figure link="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
-{{< /gallery >}}
-{{< gallery caption-effect="fade" >}}
-  {{< figure thumb="-thumb" link="/img/hexagon.jpg" >}}
-  {{< figure thumb="-thumb" link="/img/sphere.jpg" caption="Sphere" >}}
-  {{< figure thumb="-thumb" link="/img/triangle.jpg" caption="Triangle" alt="This is a long comment about a triangle" >}}
+  {{< figure link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
+  {{< figure link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
+  {{< figure link="ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
 {{< /gallery >}}
 Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task. Also, you need kotlin to use JVM the same version as java, in this case, 17. So go to build,gradle and add this(if the code already exists, just change the number accordingly):
 ```
