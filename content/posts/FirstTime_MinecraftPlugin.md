@@ -75,10 +75,43 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 }
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
-![ErrorLog](/img/ErrorLog.png "ErrorLog")
+![ErrorLog](/img/ErrorLog.jpg "ErrorLog")
 {{< gallery caption-effect="fade" >}}
-  {{< figure src="/img/ErrorLog.png" caption="ErrorLog" alt="A screenshot of the error log." >}}
+  {{< figure src="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
 {{< /gallery >}}
-Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task.
+Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task. Also, you need kotlin to use JVM the same version as java, in this case, 17. So go to build,gradle and add this(if the code already exists, just change the number accordingly):
+```
+kotlin {
+    jvmToolchain(17)
+}
+```
 A java.lang.NoClassDefFoundError! How could this be?
-After searching aimlessly for hours, I was told gradle did not put kotlin libs into the .jar file, and that I need to use an extension called: []()
+After searching aimlessly for hours, I was told gradle did not put kotlin libs into the .jar file, and that I need to use an extension called: [Gradle Shadow Plugin](https://imperceptiblethoughts.com/shadow/). Using this extension, I would be able to 'shadow' the libs into a 'fat-jar'. I added the line:
+`id 'com.github.johnrengelman.shadow' version '8.1.1'`
+in the plugins within the build.gradle file, like so:
+```
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+```
+and added this in the dependencies:
+```
+    shadow "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0"
+```
+like so:
+```
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.0"
+    shadow "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.0"
+}
+```
+And to the right, do the shadowJar task provided by the extension, and another .jar, with a -all postfix appeared. Put it in the server, and... it worked!
