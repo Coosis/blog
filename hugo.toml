@@ -21,8 +21,15 @@ pygmentsCodeFences = true
     name = "About"
     url = "page/about/"
     weight = 3
-    
+
 [[menu.main]]
     name = "Tags"
     url = "tags"
     weight = 3
+
+[Author]
+  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
+  name = "Coosis"
+  email = "1159727122@qq.com"
+  github = "Coosis"
+  twitter = "Coosis2"
