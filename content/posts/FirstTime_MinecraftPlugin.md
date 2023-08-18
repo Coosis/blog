@@ -75,7 +75,7 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 }
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
-![ErrorLog](/static/img/ErrorLog.jpg "ErrorLog")
+![ErrorLog](/img/ErrorLog.jpg "ErrorLog")
 {{< gallery caption-effect="fade" >}}
   {{< figure thumb="-thumb" link="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
   {{< figure thumb="-thumb" link="/img/ErrorLog.jpg" caption="ErrorLog" alt="A screenshot of the error log." >}}
