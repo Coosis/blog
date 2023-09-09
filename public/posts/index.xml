@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Coosis&#39;s Blog</title>
+    <link>https://coosis.github.io/blog/posts/</link>
+    <description>Recent content in Posts on Coosis&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
+    <webMaster>1159727122@qq.com (Coosis)</webMaster>
+    <lastBuildDate>Sat, 09 Sep 2023 21:41:07 +0800</lastBuildDate><atom:link href="https://coosis.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First-Time: WebPage Design</title>
+      <link>https://coosis.github.io/blog/posts/firsttime_webdesign/</link>
+      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate>
+      <author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/posts/firsttime_webdesign/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>First-Time: Minecraft Plugin</title>
+      <link>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</link>
+      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate>
+      <author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</guid>
+      <description>Before Everything Else: A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn&amp;rsquo;t really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server.</description>
+    </item>
+    
+    <item>
+      <title>My First Blog</title>
+      <link>https://coosis.github.io/blog/posts/firstpost/</link>
+      <pubDate>Fri, 11 Aug 2023 17:01:59 +0800</pubDate>
+      <author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/posts/firstpost/</guid>
+      <description>This is my first blog. This post acts as a test for the site. I would write more blogs, if possible.
+A simple line code: let a = 5;
+A simple code block:
+#include &amp;lt;iostream&amp;gt; using namespace std; int main(){ return 0; } </description>
+    </item>
+    
+  </channel>
+</rss>

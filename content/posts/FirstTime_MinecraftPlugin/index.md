@@ -75,7 +75,6 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 }
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
-![ErrorLog](ErrorLog.jpg)
 {{< gallery caption-effect="fade" >}}
     {{< figure src="posts/firsttime_minecraftplugin/ErrorLog.jpg" link="posts/firsttime_minecraftplugin/ErrorLog.jpg" caption="Error Log" >}}
 {{< /gallery >}}
@@ -120,3 +119,4 @@ And to the right, do the shadowJar task provided by the extension, and another .
 {{< /gallery >}}
 
 Side note: I never got the gallery thing figured out, so I'm stuck with just markdown images.
+Side note: I got it I got it I got it!!! After learning the basics of html and css, I inspected the page and it turns out the path of the image was wrong. All better now!
