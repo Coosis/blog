@@ -3,6 +3,12 @@ Put this file in /static/js/load-photoswipe.js
 Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 */
 
+/* Show an alert if this js file has been loaded twice */
+if (window.loadphotoswipejs) {
+	window.alert("You've loaded load-photoswipe.js twice. See https://github.com/liwenyip/hugo-easy-gallery/issues/6")
+} 
+var loadphotoswipejs = 1
+
 /* TODO: Make the share function work */
 $( document ).ready(function() {
 	/*
@@ -16,11 +22,11 @@ $( document ).ready(function() {
 		var $figure = $(this),
 			$a 		= $figure.find('a'),
 			$img 	= $figure.find('img'),
+			$src	= $a.attr('href'),
 			$title  = $img.attr('alt'),
 			$msrc	= $img.attr('src');
 		// if data-size on <a> tag is set, read it and create an item
 		if ($a.data('size')) {
-			$src	= $a.attr('href');
 			var $size 	= $a.data('size').split('x');
 			var item = {
 				src		: $src,
@@ -29,21 +35,21 @@ $( document ).ready(function() {
 				title 	: $title,
 				msrc	: $msrc
 			};
-			//console.log("Using pre-defined dimensions for " + $src);
+			console.log("Using pre-defined dimensions for " + $src);
 		// if not, set temp default size then load the image to check actual size
 		} else {
 			var item = {
-				src		: $msrc,
+				src		: $src,
 				w		: 800, // temp default size
 				h 		: 600, // temp default size
 				title 	: $title,
 				msrc	: $msrc
 			};
-			//console.log("Using default dimensions for " + $msrc);
+			console.log("Using default dimensions for " + $src);
 			// load the image to check its dimensions
 			// update the item as soon as w and h are known (check every 30ms)
 			var img = new Image(); 
-			img.src = $msrc;
+			img.src = $src;
 			var wait = setInterval(function() {
 				var w = img.naturalWidth,
 					h = img.naturalHeight;
@@ -51,7 +57,7 @@ $( document ).ready(function() {
 					clearInterval(wait);
 					item.w = w;
 					item.h = h;
-					//console.log("Got actual dimensions for " + img.src);
+					console.log("Got actual dimensions for " + img.src);
 				}
 			}, 30);
 	   	}
