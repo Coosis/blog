@@ -2,6 +2,7 @@
 title: "First-Time: WebPage Design"
 date: 2023-09-09T21:41:07+08:00
 draft: false;
+tags: ["HTML", "Web", "CSS"]
 ---
 
 # Before Everything Else:
