@@ -27,4 +27,10 @@ ASP.NET is a open-source web framework developed by microsoft. RazorPage is a ne
 
 # Result
 After trying it out, I was able to create a site diplaying coffee. I implemented a log in mechanism, and yes, I had to rent a linux server. In my case, I used Apache as my web server, and created a mysql server for storing the user data.
-``
+Take a look!
+
+{{< gallery caption-effect="fade" >}}
+    {{< figure src="posts/dynamicwebpage/WebsiteExample01.png" link="posts/dynamicwebpage/WebsiteExample01.png" caption="A screenshot of my not-finished webpage." >}}
+    {{< figure src="posts/dynamicwebpage/WebsiteExample02.png" link="posts/dynamicwebpage/WebsiteExample02.png" caption="A screenshot of my not-finished webpage." >}}
+    {{< figure src="posts/dynamicwebpage/WebsiteExample03.png" link="posts/dynamicwebpage/WebsiteExample03.png" caption="A screenshot of my not-finished webpage." >}}
+{{< /gallery >}}
