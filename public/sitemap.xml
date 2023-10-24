@@ -3,12 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://coosis.github.io/blog/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/tags/dynamic/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/posts/dynamicwebpage/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/posts/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/tags/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/tags/web/</loc>
+    <lastmod>2023-10-24T10:12:12+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/tags/css/</loc>
+    <lastmod>2023-09-09T21:41:07+08:00</lastmod>
+  </url><url>
+    <loc>https://coosis.github.io/blog/tags/design/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
     <loc>https://coosis.github.io/blog/posts/firsttime_webdesign/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/</loc>
+    <loc>https://coosis.github.io/blog/tags/html/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
     <loc>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</loc>
@@ -18,9 +39,6 @@
     <lastmod>2023-08-18T13:48:04+08:00</lastmod>
   </url><url>
     <loc>https://coosis.github.io/blog/tags/plugin/</loc>
-    <lastmod>2023-08-18T13:48:04+08:00</lastmod>
-  </url><url>
-    <loc>https://coosis.github.io/blog/tags/</loc>
     <lastmod>2023-08-18T13:48:04+08:00</lastmod>
   </url><url>
     <loc>https://coosis.github.io/blog/posts/firstpost/</loc>
