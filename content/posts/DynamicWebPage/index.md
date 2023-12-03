@@ -34,3 +34,6 @@ Take a look!
     {{< figure src="posts/dynamicwebpage/WebsiteExample02.png" link="posts/dynamicwebpage/WebsiteExample02.png" caption="A screenshot of my not-finished webpage." >}}
     {{< figure src="posts/dynamicwebpage/WebsiteExample03.png" link="posts/dynamicwebpage/WebsiteExample03.png" caption="A screenshot of my not-finished webpage." >}}
 {{< /gallery >}}
+
+# Actual Result
+Nevermind I got obliterated in the contst

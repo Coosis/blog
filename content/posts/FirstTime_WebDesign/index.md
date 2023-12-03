@@ -112,5 +112,8 @@ p.center{
 ```
 See the pattern here?
 
-# End
+# End..?
 I also found there's javascript that can make even more complex effects, event animation. I'll have to look into that. Maybe I'll reflect on all of those after the contest.
+
+# End
+Nevermind I got obliterated
