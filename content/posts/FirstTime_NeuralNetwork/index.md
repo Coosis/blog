@@ -22,3 +22,6 @@ The series mainly focused on Bigram models and MLP, and modern Transformers.
 
 # Brief Summary:
 A neural network first tokenizes inputs - transform inputs into tokens that the machine can understand. Then, it feed these tokens into its layers, in which mathematical functions are applied, then onto the next. During training, the results produced are evaluated using a loss function, and we backward on the loss function to get the gradiants of each individual parameters, and update each of them such that the loss function's value can be decreased accordingly.
+
+# What I did:
+I followed the series and build a clone of the makemore neural network by [Andrej Karpathy](https://karpathy.ai/). A lot of the other concepts I still find puzzling, but I will get to the end of them.
