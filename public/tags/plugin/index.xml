@@ -8,15 +8,14 @@
     <language>en-us</language>
     <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
     <webMaster>1159727122@qq.com (Coosis)</webMaster>
-    <lastBuildDate>Fri, 18 Aug 2023 13:48:04 +0800</lastBuildDate><atom:link href="https://coosis.github.io/blog/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Aug 2023 13:48:04 +0800</lastBuildDate>
+    <atom:link href="https://coosis.github.io/blog/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First-Time: Minecraft Plugin</title>
       <link>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</link>
-      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</guid>
       <description>Before Everything Else: A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn&amp;rsquo;t really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server.</description>
     </item>
-    
   </channel>
 </rss>

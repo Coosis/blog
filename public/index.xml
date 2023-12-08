@@ -8,57 +8,63 @@
     <language>en-us</language>
     <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
     <webMaster>1159727122@qq.com (Coosis)</webMaster>
-    <lastBuildDate>Tue, 24 Oct 2023 10:12:12 +0800</lastBuildDate><atom:link href="https://coosis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Dec 2023 15:50:38 +0800</lastBuildDate>
+    <atom:link href="https://coosis.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Ollama with Godot</title>
+      <link>https://coosis.github.io/blog/posts/ollamawithgodot/</link>
+      <pubDate>Fri, 08 Dec 2023 15:50:38 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/posts/ollamawithgodot/</guid>
+      <description>Intro to Ollama: I found a open source project: ollama by jmorganca. Github page:Ollama. Ollama lets you host language models and open up endpoints for other programs to use. The models are mainly open-sourced models like llama2 from Meta AI. Now all open-ai-privately-owns-its-models-for-profits nonsense aside, this got me very excited. Imagine a game where every NPC is able to produce dialogs by themselves, and we&amp;rsquo;re able to have a real conversation with them.</description>
+    </item>
+    <item>
+      <title>First-Time: Neural Network(overview)</title>
+      <link>https://coosis.github.io/blog/posts/firsttime_neuralnetwork/</link>
+      <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/posts/firsttime_neuralnetwork/</guid>
+      <description>Before Everything Else: So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a neural network course by Andrej Karpathy. Immediately I dived in.
+Structure/History: The different stages of neural networks are the following: Bigram (one character predicts the next one with a lookup table of counts) MLP, following Bengio et al. 2003 CNN, following DeepMind WaveNet 2016 RNN, following Mikolov et al.</description>
+    </item>
     <item>
       <title>Dynamic WebPage</title>
       <link>https://coosis.github.io/blog/posts/dynamicwebpage/</link>
-      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/posts/dynamicwebpage/</guid>
       <description>Before Everything Else: Remember how last time I promised to update once I learn more? It turned out that the web design contest has two groups: static, and dynamic. I wanted to try do a dynamic website, and oh boy was it a lot to unpack.
 Static and Dynamic? According to wikipedia, static web page is a web page that is delivered to a web browser exactly as stored, displays the same information for all user, and often stored in a .</description>
     </item>
-    
     <item>
       <title>First-Time: WebPage Design</title>
       <link>https://coosis.github.io/blog/posts/firsttime_webdesign/</link>
-      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/posts/firsttime_webdesign/</guid>
       <description>Before Everything Else: College just started. During one of the tours of the school, I found that there&amp;rsquo;s a Web-Design contest to be held by our school. Although I don&amp;rsquo;t have the first clue of writing html and css and javascript, I still wanted to go and try. There would also be sophomore, junior and senior students participate, but apparently as a freshman I can get bonus score so I would still have a chance.</description>
     </item>
-    
     <item>
       <title>First-Time: Minecraft Plugin</title>
       <link>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</link>
-      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</guid>
       <description>Before Everything Else: A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn&amp;rsquo;t really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server.</description>
     </item>
-    
     <item>
       <title>My First Blog</title>
       <link>https://coosis.github.io/blog/posts/firstpost/</link>
-      <pubDate>Fri, 11 Aug 2023 17:01:59 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Fri, 11 Aug 2023 17:01:59 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/posts/firstpost/</guid>
       <description>This is my first blog. This post acts as a test for the site. I would write more blogs, if possible.
 A simple line code: let a = 5;
 A simple code block:
 #include &amp;lt;iostream&amp;gt; using namespace std; int main(){ return 0; } </description>
     </item>
-    
     <item>
       <title>About Me</title>
       <link>https://coosis.github.io/blog/page/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/page/about/</guid>
       <description>My name is Coosis. I enjoy coding.
 Know a bit about C# I am alive What else do you need?
 My History I have been playing around with my computer for as long as I can remember. I have used game engines like RPGMaker, Unity, Godot, GameMaker, and even framework like Monogame. I learnt a bit about some languages, and C# is what I&amp;rsquo;m particularly good at.</description>
     </item>
-    
   </channel>
 </rss>

@@ -8,69 +8,70 @@
     <language>en-us</language>
     <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
     <webMaster>1159727122@qq.com (Coosis)</webMaster>
-    <lastBuildDate>Tue, 24 Oct 2023 10:12:12 +0800</lastBuildDate><atom:link href="https://coosis.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 09:37:35 +0800</lastBuildDate>
+    <atom:link href="https://coosis.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning</title>
+      <link>https://coosis.github.io/blog/tags/machine-learning/</link>
+      <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neural Network</title>
+      <link>https://coosis.github.io/blog/tags/neural-network/</link>
+      <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
+      <guid>https://coosis.github.io/blog/tags/neural-network/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Dynamic</title>
       <link>https://coosis.github.io/blog/tags/dynamic/</link>
-      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/dynamic/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Web</title>
       <link>https://coosis.github.io/blog/tags/web/</link>
-      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/web/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CSS</title>
       <link>https://coosis.github.io/blog/tags/css/</link>
-      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/css/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Design</title>
       <link>https://coosis.github.io/blog/tags/design/</link>
-      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/design/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>HTML</title>
       <link>https://coosis.github.io/blog/tags/html/</link>
-      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/html/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Minecraft</title>
       <link>https://coosis.github.io/blog/tags/minecraft/</link>
-      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/minecraft/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Plugin</title>
       <link>https://coosis.github.io/blog/tags/plugin/</link>
-      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate>
-      <author>1159727122@qq.com (Coosis)</author>
+      <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
       <guid>https://coosis.github.io/blog/tags/plugin/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

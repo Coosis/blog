@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
-    <webMaster>1159727122@qq.com (Coosis)</webMaster><atom:link href="https://coosis.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>1159727122@qq.com (Coosis)</webMaster>
+    <atom:link href="https://coosis.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
