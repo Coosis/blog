@@ -1,7 +1,8 @@
 ---
 title: "First-Time: IOS App"
 date: 2023-12-22T23:20:34+08:00
-draft: true
+draft: false
+tags: ["ios", "app", "swift"]
 ---
 
 # Before Everything Else:
