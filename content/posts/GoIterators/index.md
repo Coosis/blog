@@ -28,6 +28,7 @@ function, 2 values  f  func(func(K, V)bool) bool   key      k  K      v         
 
 And stated that:
 > If f is a function type of the form func(yield func(T1, T2)bool) bool, then for x, y := range f { ... } is similar to f(func(x T1, y T2) bool { ... }), where the loop body has been moved into the function literal, which is passed to f as yield. The boolean result from yield indicates to f whether to keep iterating. The boolean result from f itself is ignored in this usage but present to allow easier composition of iterators.
+
 So,
 ```go
 for x, y := range f {
@@ -45,7 +46,6 @@ Go iterators are functions that take a function as an argument and return a bool
 
 # How do they work?
 Lets look at the example from the [GoWiki](https://github.com/golang/go/issues/61405):
-
 Consider this function for iterating a slice backwards:
 ```go
 package slices
@@ -75,7 +75,7 @@ slices.Backward(s)(func(i int, x string) bool {
 })
 ```
 
-In this example, `Backward` is a Go iterator. We can use it to easily iterate over a slice backwards. Now, there are couple of things to notice:
+In this example, `Backward` is a function that returns a Go iterator. We can use it to easily iterate over a slice backwards. Now, there are couple of things to notice:
 1. The iterator is responsible for calling the body.
 2. The body needs either: `k, v` or `v` or nothing.
 3. The iterator calls yield with every: `k, v` or `v` or nothing.
