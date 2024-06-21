@@ -2,64 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://coosis.github.io/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2024-06-21T23:00:51+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/goiterators/</loc>
+    <lastmod>2024-06-21T23:00:51+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/</loc>
+    <lastmod>2024-06-21T23:00:51+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/segmenttree/</loc>
+    <lastmod>2024-01-04T20:08:59+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/app/</loc>
+    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/firsttime_developiosapp/</loc>
+    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/ios/</loc>
+    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/swift/</loc>
+    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/</loc>
+    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/ollamawithgodot/</loc>
     <lastmod>2023-12-08T15:50:38+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/</loc>
-    <lastmod>2023-12-08T15:50:38+08:00</lastmod>
-  </url><url>
-    <loc>https://coosis.github.io/blog/posts/ollamawithgodot/</loc>
-    <lastmod>2023-12-08T15:50:38+08:00</lastmod>
-  </url><url>
-    <loc>https://coosis.github.io/blog/posts/firsttime_neuralnetwork/</loc>
+    <loc>http://localhost:1313/blog/posts/firsttime_neuralnetwork/</loc>
     <lastmod>2023-12-03T09:37:35+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/machine-learning/</loc>
+    <loc>http://localhost:1313/blog/tags/machine-learning/</loc>
     <lastmod>2023-12-03T09:37:35+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/neural-network/</loc>
+    <loc>http://localhost:1313/blog/tags/neural-network/</loc>
     <lastmod>2023-12-03T09:37:35+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/</loc>
-    <lastmod>2023-12-03T09:37:35+08:00</lastmod>
-  </url><url>
-    <loc>https://coosis.github.io/blog/tags/dynamic/</loc>
+    <loc>http://localhost:1313/blog/tags/dynamic/</loc>
     <lastmod>2023-10-24T10:12:12+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/dynamicwebpage/</loc>
+    <loc>http://localhost:1313/blog/posts/dynamicwebpage/</loc>
     <lastmod>2023-10-24T10:12:12+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/web/</loc>
+    <loc>http://localhost:1313/blog/tags/web/</loc>
     <lastmod>2023-10-24T10:12:12+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/css/</loc>
+    <loc>http://localhost:1313/blog/tags/css/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/design/</loc>
+    <loc>http://localhost:1313/blog/tags/design/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/firsttime_webdesign/</loc>
+    <loc>http://localhost:1313/blog/posts/firsttime_webdesign/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/html/</loc>
+    <loc>http://localhost:1313/blog/tags/html/</loc>
     <lastmod>2023-09-09T21:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/firsttime_minecraftplugin/</loc>
+    <loc>http://localhost:1313/blog/posts/firsttime_minecraftplugin/</loc>
     <lastmod>2023-08-18T13:48:04+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/minecraft/</loc>
+    <loc>http://localhost:1313/blog/tags/minecraft/</loc>
     <lastmod>2023-08-18T13:48:04+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/tags/plugin/</loc>
+    <loc>http://localhost:1313/blog/tags/plugin/</loc>
     <lastmod>2023-08-18T13:48:04+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/posts/firstpost/</loc>
+    <loc>http://localhost:1313/blog/posts/firstpost/</loc>
     <lastmod>2023-08-11T17:01:59+08:00</lastmod>
   </url><url>
-    <loc>https://coosis.github.io/blog/page/about/</loc>
+    <loc>http://localhost:1313/blog/page/about/</loc>
   </url><url>
-    <loc>https://coosis.github.io/blog/categories/</loc>
+    <loc>http://localhost:1313/blog/categories/</loc>
   </url><url>
-    <loc>https://coosis.github.io/blog/page/</loc>
+    <loc>http://localhost:1313/blog/page/</loc>
   </url>
 </urlset>

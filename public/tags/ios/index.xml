@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on Coosis&#39;s Blog</title>
+    <link>http://localhost:1313/blog/tags/ios/</link>
+    <description>Recent content in Ios on Coosis&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>1159727122@qq.com (Coosis)</managingEditor>
+    <webMaster>1159727122@qq.com (Coosis)</webMaster>
+    <lastBuildDate>Fri, 22 Dec 2023 23:20:34 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First-Time: IOS App</title>
+      <link>http://localhost:1313/blog/posts/firsttime_developiosapp/</link>
+      <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>1159727122@qq.com (Coosis)</author>
+      <guid>http://localhost:1313/blog/posts/firsttime_developiosapp/</guid>
+      <description>Before Everything Else: Now a college student, I need a way to manage all my classes somehow. Of course, there&amp;rsquo;s the built-in calendar app that can do that, but I think we all know how difficult and frustrating it is to put all classes into the calendar app. I wanted to make my own.&#xA;Swift and Swift UI: Naturally, apple expects you to build app using Swift and Swift UI. Swift UI is a powerful framework used to build app for ios, watch os, ipad os and mac os, etc.</description>
+    </item>
+  </channel>
+</rss>
