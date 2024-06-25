@@ -41,11 +41,9 @@ f(func(x T1, y T2) bool {
     // ...
 })
 ```
-Generalize and you get the definition:
-Go iterators are functions that take a function as an argument and return a boolean value. Specifically, the arguments are functions of the form `func(T1, T2) bool`, `func(T) bool`, or `func() bool`.
 
 # How do they work?
-Lets look at the example from the [GoWiki](https://github.com/golang/go/issues/61405):
+Lets look at the example from the [GoWiki](https://go.dev/wiki/RangefuncExperiment):
 Consider this function for iterating a slice backwards:
 ```go
 package slices
@@ -60,7 +58,8 @@ func Backward[E any](s []E) func(func(int, E) bool) {
     }
 }
 ```
-It can be invoked as:
+Immediately you'll notice something: Backward()'s return value does not have a return value. Now this confused me a bit as well, but it seems like in the official implementation, iterators do not need a return value, so it differs from rsc's original proposal.
+This can be invoked as:
 ```go
 s := []string{"hello", "world"}
 for i, x := range slices.Backward(s) {
@@ -81,8 +80,11 @@ In this example, `Backward` is a function that returns a Go iterator. We can use
 3. The iterator calls yield with every: `k, v` or `v` or nothing.
 4. `return true` keeps the loop going, while `return false` effectively breaks the loop.
 
+Generalize and you get the definition:
+Go iterators are functions that take a function as an argument. Specifically, the arguments are functions of the form `func(T1, T2) bool`, `func(T) bool`, or `func() bool`.
+
 # Hard to understand?
-I know, it's a bit much. I am kind of confused to be honest. But we can see this more intuitively. What the `for k, v := range f { ... }` is doing, is basically as such:
+I know, it's a bit much. I'm kind of confused as well. But we can see this more intuitively. What the `for k, v := range f { ... }` is doing, is basically as such:
 > Iterate using `f` as an iterator, and for every iteration, call `{ ... }` with the values `k, v`.
 
 Some may say that this is like .forEach in some other languages for passing a callback function. I suppose that's a nice way to look at it..?
