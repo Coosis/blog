@@ -11,8 +11,8 @@ I AM A TERRIBLE PROGRAMMER SO DO NOT TAKE THINGS I SAY SERIOUSLY. I KNOW ABUSOLU
 # Definition
 The segment tree, is a data structure used for storing information about intervals or segments. It allows efficient altering of interval's or segments's information, querying about information on intervals or segments. In this blog I will keep it to intervals, the only reason of this is I only learnt about the interval part. Given a interval, we can create a tree to store information about this interval, like my very accurate and clear sketches: 
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/segmenttree/ske01.jpg" link="posts/segmenttree/ske01.jpg" caption="Sketch 1" >}}
-    {{< figure src="posts/segmenttree/ske02.jpg" link="posts/segmenttree/ske02.jpg" caption="Sketch 2" >}}
+    {{< figure src="/posts/segmenttree/ske01.jpg" caption="Sketch 1" >}}
+    {{< figure src="/posts/segmenttree/ske02.jpg" caption="Sketch 2" >}}
 {{< /gallery >}}
 
 # Building A Tree

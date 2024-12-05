@@ -2,96 +2,96 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
-    <link>https://coosis.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
     <lastBuildDate>Fri, 22 Dec 2023 23:20:34 +0800</lastBuildDate>
-    <atom:link href="https://coosis.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>App</title>
-      <link>https://coosis.github.io/tags/app/</link>
+      <link>http://localhost:1313/tags/app/</link>
       <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/app/</guid>
+      <guid>http://localhost:1313/tags/app/</guid>
       <description></description>
     </item>
     <item>
       <title>Ios</title>
-      <link>https://coosis.github.io/tags/ios/</link>
+      <link>http://localhost:1313/tags/ios/</link>
       <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/ios/</guid>
+      <guid>http://localhost:1313/tags/ios/</guid>
       <description></description>
     </item>
     <item>
       <title>Swift</title>
-      <link>https://coosis.github.io/tags/swift/</link>
+      <link>http://localhost:1313/tags/swift/</link>
       <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/swift/</guid>
+      <guid>http://localhost:1313/tags/swift/</guid>
       <description></description>
     </item>
     <item>
       <title>Machine Learning</title>
-      <link>https://coosis.github.io/tags/machine-learning/</link>
+      <link>http://localhost:1313/tags/machine-learning/</link>
       <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/machine-learning/</guid>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Neural Network</title>
-      <link>https://coosis.github.io/tags/neural-network/</link>
+      <link>http://localhost:1313/tags/neural-network/</link>
       <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/neural-network/</guid>
+      <guid>http://localhost:1313/tags/neural-network/</guid>
       <description></description>
     </item>
     <item>
       <title>Dynamic</title>
-      <link>https://coosis.github.io/tags/dynamic/</link>
+      <link>http://localhost:1313/tags/dynamic/</link>
       <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/dynamic/</guid>
+      <guid>http://localhost:1313/tags/dynamic/</guid>
       <description></description>
     </item>
     <item>
       <title>Web</title>
-      <link>https://coosis.github.io/tags/web/</link>
+      <link>http://localhost:1313/tags/web/</link>
       <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/web/</guid>
+      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     <item>
       <title>CSS</title>
-      <link>https://coosis.github.io/tags/css/</link>
+      <link>http://localhost:1313/tags/css/</link>
       <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/css/</guid>
+      <guid>http://localhost:1313/tags/css/</guid>
       <description></description>
     </item>
     <item>
       <title>Design</title>
-      <link>https://coosis.github.io/tags/design/</link>
+      <link>http://localhost:1313/tags/design/</link>
       <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/design/</guid>
+      <guid>http://localhost:1313/tags/design/</guid>
       <description></description>
     </item>
     <item>
       <title>HTML</title>
-      <link>https://coosis.github.io/tags/html/</link>
+      <link>http://localhost:1313/tags/html/</link>
       <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/html/</guid>
+      <guid>http://localhost:1313/tags/html/</guid>
       <description></description>
     </item>
     <item>
       <title>Minecraft</title>
-      <link>https://coosis.github.io/tags/minecraft/</link>
+      <link>http://localhost:1313/tags/minecraft/</link>
       <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/minecraft/</guid>
+      <guid>http://localhost:1313/tags/minecraft/</guid>
       <description></description>
     </item>
     <item>
       <title>Plugin</title>
-      <link>https://coosis.github.io/tags/plugin/</link>
+      <link>http://localhost:1313/tags/plugin/</link>
       <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/tags/plugin/</guid>
+      <guid>http://localhost:1313/tags/plugin/</guid>
       <description></description>
     </item>
   </channel>

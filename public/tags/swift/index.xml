@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swift on </title>
-    <link>https://coosis.github.io/tags/swift/</link>
+    <link>http://localhost:1313/tags/swift/</link>
     <description>Recent content in Swift on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
     <lastBuildDate>Fri, 22 Dec 2023 23:20:34 +0800</lastBuildDate>
-    <atom:link href="https://coosis.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First-Time: IOS App</title>
-      <link>https://coosis.github.io/posts/firsttime_developiosapp/</link>
+      <link>http://localhost:1313/posts/firsttime_developiosapp/</link>
       <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>https://coosis.github.io/posts/firsttime_developiosapp/</guid>
+      <guid>http://localhost:1313/posts/firsttime_developiosapp/</guid>
       <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;Now a college student, I need a way to manage all my classes somehow. Of course, there&amp;rsquo;s the built-in calendar app that can do that, but I think we all know how difficult and frustrating it is to put all classes into the calendar app. I wanted to make my own.&lt;/p&gt;&#xA;&lt;h1 id=&#34;swift-and-swift-ui&#34;&gt;Swift and Swift UI:&lt;/h1&gt;&#xA;&lt;p&gt;Naturally, apple expects you to build app using Swift and Swift UI. Swift UI is a powerful framework used to build app for ios, watch os, ipad os and mac os, etc. And Swift is the underlying programming language. I rarely see people discuss Swift problems, so I assumed that there&amp;rsquo;s not much I can learn from. And I was right, apart from &lt;a href=&#34;https://developer.apple.com/documentation/swift/swift-standard-library&#34;&gt;apple&amp;rsquo;s own documentation&lt;/a&gt;, I did not find much to start with. Good thing it is well documented.&lt;/p&gt;</description>
     </item>
   </channel>
