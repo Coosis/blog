@@ -115,7 +115,7 @@ dependencies {
 ```
 And to the right, do the shadowJar task provided by the extension, and another .jar, with a -all postfix appeared. Put it in the server, and... it worked!
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/firsttime_minecraftplugin/successoutput.jpg" link="posts/firsttime_minecraftplugin/successoutput.jpg" caption="Success Log" >}}
+    {{< figure src="posts/firsttime_minecraftplugin/successoutput.jpg" link="successoutput.jpg" caption="Success Log" >}}
 {{< /gallery >}}
 
 Side note: I never got the gallery thing figured out, so I'm stuck with just markdown images.
