@@ -30,9 +30,9 @@ After trying it out, I was able to create a site diplaying coffee. I implemented
 Take a look!
 
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="/posts/dynamicwebpage/websiteexample01.png" caption="a screenshot of my not-finished webpage." >}}
-    {{< figure src="/posts/dynamicwebpage/websiteexample02.png" caption="a screenshot of my not-finished webpage." >}}
-    {{< figure src="/posts/dynamicwebpage/websiteexample03.png" caption="a screenshot of my not-finished webpage." >}}
+    {{< figure src="posts/dynamicwebpage/websiteexample01.png" caption="a screenshot of my not-finished webpage." >}}
+    {{< figure src="posts/dynamicwebpage/websiteexample02.png" caption="a screenshot of my not-finished webpage." >}}
+    {{< figure src="posts/dynamicwebpage/websiteexample03.png" caption="a screenshot of my not-finished webpage." >}}
 {{< /gallery >}}
 
 # Actual Result
