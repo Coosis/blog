@@ -1,7 +1,7 @@
 baseURL = 'https://coosis.github.io/'
 languageCode = 'en-us'
 # title = "Coosis's Blog"
-# theme = 'beautifulhugo'
+theme = 'beautifulhugo'
 
 [Params.author]
   name = "Coosis"
