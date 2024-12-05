@@ -92,7 +92,7 @@ func _on_button_pressed():
 
 # Result:
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="/posts/ollamawithgodot/res1.png" caption="Result 1" >}}
-    {{< figure src="/posts/ollamawithgodot/res2.png" caption="Result 2" >}}
-    {{< figure src="/posts/ollamawithgodot/res2.png" caption="Result 3" >}}
+    {{< figure src="posts/ollamawithgodot/res1.png" caption="Result 1" >}}
+    {{< figure src="posts/ollamawithgodot/res2.png" caption="Result 2" >}}
+    {{< figure src="posts/ollamawithgodot/res2.png" caption="Result 3" >}}
 {{< /gallery >}}
