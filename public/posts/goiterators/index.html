@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>Go Iterators - Coosis&#39;s Blog</title>
+
+  <meta name="description" content="Context:
+So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.
+I found this issue: spec: add range over int, range over func #61405
+I strongly encourage you to read it yourself. But, basically, what rsc is trying to propose is that, for loops should be able to iterate over numbers and functions, apart from the usual slices, arrays, maps, and channels.
+The numbers part is pretty straightforward, it&rsquo;s the function part that I want to focus on.">
+  <meta name="author" content="Coosis"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "http:\/\/localhost:1313\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:1313\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/posts\/goiterators\/",
+          "name": "Go iterators"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Coosis"
+  },
+  "headline": "Go Iterators",
+  "description" : "Context: So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work. I found this issue: spec: add range over int, range over func #61405 I strongly encourage you to read it yourself. But, basically, what rsc is trying to propose is that, for loops should be able to iterate over numbers and functions, apart from the usual slices, arrays, maps, and channels. The numbers part is pretty straightforward, it\u0026rsquo;s the function part that I want to focus on.\n",
+  "inLanguage" : "en",
+  "wordCount":  900 ,
+  "datePublished" : "2024-06-21T23:00:51\u002b08:00",
+  "dateModified" : "2024-06-21T23:00:51\u002b08:00",
+  "image" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/goiterators\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Go Iterators" />
+<meta property="og:description" content="Context:
+So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.
+I found this issue: spec: add range over int, range over func #61405
+I strongly encourage you to read it yourself. But, basically, what rsc is trying to propose is that, for loops should be able to iterate over numbers and functions, apart from the usual slices, arrays, maps, and channels.
+The numbers part is pretty straightforward, it&rsquo;s the function part that I want to focus on.">
+<meta property="og:image" content="http://localhost:1313/img/ClearHead2.ico" />
+<meta property="og:url" content="http://localhost:1313/posts/goiterators/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="" />
+
+  <meta name="twitter:title" content="Go Iterators" />
+  <meta name="twitter:description" content="Context:
+So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.
+I found this issue: spec: add range over int, range over func #61405
+I …">
+  <meta name="twitter:image" content="http://localhost:1313/img/ClearHead2.ico" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CoosisV" />
+  <meta name="twitter:creator" content="@CoosisV" />
+  <link href='http://localhost:1313/img/ClearHead2.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.139.0">
+  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:1313/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313/"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="" href="http://localhost:1313/">
+            <img class="avatar-img" src="http://localhost:1313/img/ClearHead2.ico" alt="" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Go Iterators</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="context">Context:</h1>
+<p>So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.
+I found this issue: <a href="https://github.com/golang/go/issues/61405">spec: add range over int, range over func #61405</a>
+I strongly encourage you to read it yourself. But, basically, what <a href="https://github.com/rsc">rsc</a> is trying to propose is that, for loops should be able to iterate over numbers and functions, apart from the usual slices, arrays, maps, and channels.
+The numbers part is pretty straightforward, it&rsquo;s the function part that I want to focus on.</p>
+<h1 id="go-iterators">Go Iterators</h1>
+<p>So to make it possible to iterate over functions, <a href="https://github.com/rsc">rsc</a> added three rows to the spec table:</p>
+<pre tabindex="0"><code>Range expression                                   1st value          2nd value
+
+array or slice      a  [n]E, *[n]E, or []E         index    i  int    a[i]       E
+string              s  string type                 index    i  int    see below  rune
+map                 m  map[K]V                     key      k  K      m[k]       V
+channel             c  chan E, &lt;-chan E            element  e  E
+integer             n  integer type                index    i int
+
+function, 0 values  f  func(func()bool) bool
+function, 1 value   f  func(func(V)bool) bool      value    v  V
+function, 2 values  f  func(func(K, V)bool) bool   key      k  K      v          V
+</code></pre><p>And stated that:</p>
+<blockquote>
+<p>If f is a function type of the form func(yield func(T1, T2)bool) bool, then for x, y := range f { &hellip; } is similar to f(func(x T1, y T2) bool { &hellip; }), where the loop body has been moved into the function literal, which is passed to f as yield. The boolean result from yield indicates to f whether to keep iterating. The boolean result from f itself is ignored in this usage but present to allow easier composition of iterators.</p>
+</blockquote>
+<p>So,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">f</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>is effectively the same as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">f</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">x</span> <span style="color:#a6e22e">T1</span>, <span style="color:#a6e22e">y</span> <span style="color:#a6e22e">T2</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span></code></pre></div><h1 id="how-do-they-work">How do they work?</h1>
+<p>Lets look at the example from the <a href="https://go.dev/wiki/RangefuncExperiment">GoWiki</a>:
+Consider this function for iterating a slice backwards:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">slices</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Backward</span>[<span style="color:#a6e22e">E</span> <span style="color:#a6e22e">any</span>](<span style="color:#a6e22e">s</span> []<span style="color:#a6e22e">E</span>) <span style="color:#66d9ef">func</span>(<span style="color:#66d9ef">func</span>(<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">E</span>) <span style="color:#66d9ef">bool</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">yield</span> <span style="color:#66d9ef">func</span>(<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">E</span>) <span style="color:#66d9ef">bool</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">s</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">yield</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Immediately you&rsquo;ll notice something: Backward()&rsquo;s return value does not have a return value. Now this confused me a bit as well, but it seems like in the official implementation, iterators do not need a return value, so it differs from rsc&rsquo;s original proposal.
+This can be invoked as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#e6db74">&#34;world&#34;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">slices</span>.<span style="color:#a6e22e">Backward</span>(<span style="color:#a6e22e">s</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This program would translate inside the compiler to a program more like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">slices</span>.<span style="color:#a6e22e">Backward</span>(<span style="color:#a6e22e">s</span>)(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">x</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">x</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>In this example, <code>Backward</code> is a function that returns a Go iterator. We can use it to easily iterate over a slice backwards. Now, there are couple of things to notice:</p>
+<ol>
+<li>The iterator is responsible for calling the body.</li>
+<li>The body needs either: <code>k, v</code> or <code>v</code> or nothing.</li>
+<li>The iterator calls yield with every: <code>k, v</code> or <code>v</code> or nothing.</li>
+<li><code>return true</code> keeps the loop going, while <code>return false</code> effectively breaks the loop.</li>
+</ol>
+<p>Generalize and you get the definition:
+Go iterators are functions that take a function as an argument. Specifically, the arguments are functions of the form <code>func(T1, T2) bool</code>, <code>func(T) bool</code>, or <code>func() bool</code>.</p>
+<h1 id="hard-to-understand">Hard to understand?</h1>
+<p>I know, it&rsquo;s a bit much. I&rsquo;m kind of confused as well. But we can see this more intuitively. What the <code>for k, v := range f { ... }</code> is doing, is basically as such:</p>
+<blockquote>
+<p>Iterate using <code>f</code> as an iterator, and for every iteration, call <code>{ ... }</code> with the values <code>k, v</code>.</p>
+</blockquote>
+<p>Some may say that this is like .forEach in some other languages for passing a callback function. I suppose that&rsquo;s a nice way to look at it..?
+You can also read this quote from the <a href="https://github.com/golang/go/issues/61405">spec: add range over int, range over func #61405</a> issue page:</p>
+<blockquote>
+<p>For a function f, the iteration proceeds by calling f with a synthesized yield function that invokes the body of the loop. The values produced correspond to the arguments in successive calls to yield. As with range over other types, it is permitted to declare fewer iteration variables than there are iteration values. The return value from the yield function reports whether f should continue iterating. For example, if the loop body executes a break statement, the corresponding call to yield returns false. The return value from f is ignored by range but conventionally returns false when yield has returned false, to allow composing a sequence of such functions. The use of a synthesized yield function does not change the semantics of the loop body. In particular, break, continue, defer, goto, and return statements all behave in a loop body ranging over a function exactly as they do in a loop body ranging over other types.</p>
+</blockquote>
+<p>To its core, iterators have the form like so:</p>
+<pre tabindex="0"><code>func iterator(...) func(func(...) bool) {
+    return func(yield func(...) bool) {
+        // iterate somehow, calling yield on every iteration
+    }
+}
+</code></pre><p>And when it pass back the function, the function will be immediately called with the body.</p>
+<h2 id="other-reading-sources">Other reading sources:</h2>
+<ul>
+<li><a href="https://www.gingerbill.org/article/2024/06/17/go-iterator-design/">Why People are Angry over Go 1.23 Iterators</a></li>
+<li><a href="https://bitfieldconsulting.com/posts/iterators">Iterators in Go</a></li>
+<li><a href="https://medium.com/eureka-engineering/a-look-at-iterators-in-go-f8e86062937c">A look at iterators in Go</a></li>
+</ul>
+<h2 id="note">Note:</h2>
+<p>This feature, as of the time of writing, is under heavy criticism, and I strongly encourage you do some research on this to learn the full story.</p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f&amp;text=Go%20Iterators&amp;via=CoosisV" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f&amp;title=Go%20Iterators" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f&amp;title=Go%20Iterators" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f&amp;title=Go%20Iterators" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fgoiterators%2f&amp;description=Go%20Iterators" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/posts/disjointset/" data-toggle="tooltip" data-placement="top" title="Disjoint-Set">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:coosislee@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/Coosis" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/CoosisV" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://telegram.me/Coosis" title="Telegram">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://coosis.github.io/">Coosis</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.139.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:1313/js/main.js"></script>
+<script src="http://localhost:1313/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:1313/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
