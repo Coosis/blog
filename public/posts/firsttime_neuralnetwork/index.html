@@ -1,0 +1,491 @@
+
+
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+ 
+
+
+      <title>First-Time: Neural Network(overview) - Coosis&#39;s Blog</title>
+
+  <meta name="description" content="Before Everything Else:
+So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a neural network course by Andrej Karpathy. Immediately I dived in.
+Structure/History:
+The different stages of neural networks are the following:
+Bigram (one character predicts the next one with a lookup table of counts)
+MLP, following Bengio et al. 2003
+CNN, following DeepMind WaveNet 2016
+RNN, following Mikolov et al. 2010
+LSTM, following Graves et al. 2014
+GRU, following Kyunghyun Cho et al. 2014
+Transformer, following Vaswani et al. 2017">
+  <meta name="author" content="Coosis"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "",
+    
+    "url": "http:\/\/localhost:1313\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "http:\/\/localhost:1313\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "http:\/\/localhost:1313\/posts\/firsttime_neuralnetwork\/",
+          "name": "First time neural network(overview)"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Coosis"
+  },
+  "headline": "First-Time: Neural Network(overview)",
+  "description" : "Before Everything Else: So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a neural network course by Andrej Karpathy. Immediately I dived in.\nStructure\/History: The different stages of neural networks are the following: Bigram (one character predicts the next one with a lookup table of counts) MLP, following Bengio et al. 2003 CNN, following DeepMind WaveNet 2016 RNN, following Mikolov et al. 2010 LSTM, following Graves et al. 2014 GRU, following Kyunghyun Cho et al. 2014 Transformer, following Vaswani et al. 2017\n",
+  "inLanguage" : "en",
+  "wordCount":  221 ,
+  "datePublished" : "2023-12-03T09:37:35\u002b08:00",
+  "dateModified" : "2023-12-03T09:37:35\u002b08:00",
+  "image" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
+  "keywords" : [ "Machine Learning, Neural Network" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/firsttime_neuralnetwork\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "http:\/\/localhost:1313\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="First-Time: Neural Network(overview)" />
+<meta property="og:description" content="Before Everything Else:
+So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a neural network course by Andrej Karpathy. Immediately I dived in.
+Structure/History:
+The different stages of neural networks are the following:
+Bigram (one character predicts the next one with a lookup table of counts)
+MLP, following Bengio et al. 2003
+CNN, following DeepMind WaveNet 2016
+RNN, following Mikolov et al. 2010
+LSTM, following Graves et al. 2014
+GRU, following Kyunghyun Cho et al. 2014
+Transformer, following Vaswani et al. 2017">
+<meta property="og:image" content="http://localhost:1313/img/ClearHead2.ico" />
+<meta property="og:url" content="http://localhost:1313/posts/firsttime_neuralnetwork/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="" />
+
+  <meta name="twitter:title" content="First-Time: Neural Network(overview)" />
+  <meta name="twitter:description" content="Before Everything Else:
+So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a neural network course by Andrej Karpathy. Immediately I dived in. …">
+  <meta name="twitter:image" content="http://localhost:1313/img/ClearHead2.ico" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@CoosisV" />
+  <meta name="twitter:creator" content="@CoosisV" />
+  <link href='http://localhost:1313/img/ClearHead2.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.139.0">
+  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title=""><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" integrity="sha384-h/hnnw1Bi4nbpD6kE7nYfCXzovi622sY5WBxww8ARKwpdLj5kUWjRuyiXaD1U2JT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="http://localhost:1313/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://localhost:1313/css/highlight.min.css" /><link rel="stylesheet" href="http://localhost:1313/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:1313/"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="" href="http://localhost:1313/">
+            <img class="avatar-img" src="http://localhost:1313/img/ClearHead2.ico" alt="" />
+           
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>First-Time: Neural Network(overview)</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="before-everything-else">Before Everything Else:</h1>
+<p>So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a <a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ">neural network course</a> by <a href="https://karpathy.ai/">Andrej Karpathy</a>. Immediately I dived in.</p>
+<h1 id="structurehistory">Structure/History:</h1>
+<p>The different stages of neural networks are the following:
+Bigram (one character predicts the next one with a lookup table of counts)
+MLP, following <a href="https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf">Bengio et al. 2003</a>
+CNN, following <a href="https://arxiv.org/abs/1609.03499">DeepMind WaveNet 2016</a>
+RNN, following <a href="https://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf">Mikolov et al. 2010</a>
+LSTM, following <a href="https://arxiv.org/abs/1308.0850">Graves et al. 2014</a>
+GRU, following <a href="https://arxiv.org/abs/1409.1259">Kyunghyun Cho et al. 2014</a>
+Transformer, following <a href="https://arxiv.org/abs/1706.03762">Vaswani et al. 2017</a></p>
+<p>The series mainly focused on Bigram models and MLP, and modern Transformers.</p>
+<h1 id="brief-summary">Brief Summary:</h1>
+<p>A neural network first tokenizes inputs - transform inputs into tokens that the machine can understand. Then, it feed these tokens into its layers, in which mathematical functions are applied, then onto the next. During training, the results produced are evaluated using a loss function, and we backward on the loss function to get the gradiants of each individual parameters, and update each of them such that the loss function&rsquo;s value can be decreased accordingly.</p>
+<h1 id="what-i-did">What I did:</h1>
+<p>I followed the series and build a clone of the makemore neural network by <a href="https://karpathy.ai/">Andrej Karpathy</a>. A lot of the other concepts I still find puzzling, but I will get to the end of them.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              
+              <a href="http://localhost:1313/tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+              
+              <a href="http://localhost:1313/tags/neural-network/">Neural Network</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f&amp;text=First-Time%3a%20Neural%20Network%28overview%29&amp;via=CoosisV" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f&amp;title=First-Time%3a%20Neural%20Network%28overview%29" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f&amp;title=First-Time%3a%20Neural%20Network%28overview%29" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f&amp;title=First-Time%3a%20Neural%20Network%28overview%29" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffirsttime_neuralnetwork%2f&amp;description=First-Time%3a%20Neural%20Network%28overview%29" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="http://localhost:1313/posts/dynamicwebpage/" data-toggle="tooltip" data-placement="top" title="Dynamic WebPage">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="http://localhost:1313/posts/ollamawithgodot/" data-toggle="tooltip" data-placement="top" title="Use Ollama with Godot">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      <footer>
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+		
+		  <a href="mailto:coosislee@gmail.com" title="Email me">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://github.com/Coosis" title="GitHub">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://twitter.com/CoosisV" title="Twitter">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+		
+		  <a href="https://telegram.me/Coosis" title="Telegram">
+		
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="https://coosis.github.io/">Coosis</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2024
+          
+
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.139.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha384-w5y/xIeYixWvfM+A1cEbmHPURnvyqmVg5eVENruEdDjcyRLUSNej7512JQGspFUr" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="http://localhost:1313/js/main.js"></script>
+<script src="http://localhost:1313/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="http://localhost:1313/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
