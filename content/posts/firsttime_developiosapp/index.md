@@ -5,6 +5,9 @@ draft: false
 tags: ["ios", "app", "swift"]
 ---
 
+ios development overview
+<!--more-->
+
 # Before Everything Else:
 Now a college student, I need a way to manage all my classes somehow. Of course, there's the built-in calendar app that can do that, but I think we all know how difficult and frustrating it is to put all classes into the calendar app. I wanted to make my own.
 

@@ -5,6 +5,9 @@ draft: false
 tags: ["Web", "Dynamic"]
 ---
 
+Dynamic or not dynamic, that is the question
+<!--more-->
+
 # Before Everything Else:
 Remember how last time I promised to update once I learn more? It turned out that the web design contest has two groups: static, and dynamic. I wanted to try do a dynamic website, and oh boy was it a lot to unpack.
 

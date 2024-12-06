@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design on </title>
-    <link>http://localhost:1313/tags/design/</link>
+    <link>https://coosis.github.io/tags/design/</link>
     <description>Recent content in Design on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
     <lastBuildDate>Sat, 09 Sep 2023 21:41:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://coosis.github.io/tags/design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First-Time: WebPage Design</title>
-      <link>http://localhost:1313/posts/firsttime_webdesign/</link>
+      <link>https://coosis.github.io/posts/firsttime_webdesign/</link>
       <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firsttime_webdesign/</guid>
+      <guid>https://coosis.github.io/posts/firsttime_webdesign/</guid>
       <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;College just started. During one of the tours of the school, I found that there&amp;rsquo;s a Web-Design contest to be held by our school. Although I don&amp;rsquo;t have the first clue of writing html and css and javascript, I still wanted to go and try. There would also be sophomore, junior and senior students participate, but apparently as a freshman I can get bonus score so I would still have a chance. So I started looking into html&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>

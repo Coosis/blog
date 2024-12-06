@@ -4,6 +4,9 @@ date: 2024-06-21T23:00:51+08:00
 draft: false
 ---
 
+But what are Go iterators?
+<!--more-->
+
 # Context:
 So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.
 I found this issue: [spec: add range over int, range over func #61405](https://github.com/golang/go/issues/61405)
