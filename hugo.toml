@@ -43,7 +43,8 @@ theme = 'beautifulhugo'
 #  position = "center top"
 [[Params.bigimg]]
  src = "img/hexagon.jpg"
- desc = "Hexagon"
+ # desc = "Hexagon"
+ desc = ""
 
 [services]
   [services.googleAnalytics]
