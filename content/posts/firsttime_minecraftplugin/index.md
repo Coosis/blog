@@ -76,7 +76,7 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 ```
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="/posts/firsttime_minecraftplugin/errorlog.jpg" link="errorlog.jpg" caption="error log" >}}
+    {{< figure src="posts/firsttime_minecraftplugin/errorlog.jpg" link="posts/firsttime_minecraftplugin/errorlog.jpg" caption="error log" >}}
 {{< /gallery >}}
 Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task. Also, you need kotlin to use JVM the same version as java, in this case, 17. So go to build,gradle and add this(if the code already exists, just change the number accordingly):
 ```
