@@ -4,6 +4,9 @@ date: 2024-03-24T14:42:34+08:00
 draft: false
 ---
 
+Data structure for maintaining relations between elements.
+<!--more-->
+
 # Definition:
 The disjoint-set data structure is a data structure that is used to determine the set to which an element belongs. 
 

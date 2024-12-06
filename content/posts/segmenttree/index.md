@@ -5,6 +5,9 @@ draft: false
 tag: ["Tree", "ALgorithm"]
 ---
 
+Data structure for storing information about intervals(very efficient btw).
+<!--more-->
+
 # DISCLAIMER:
 I AM A TERRIBLE PROGRAMMER SO DO NOT TAKE THINGS I SAY SERIOUSLY. I KNOW ABUSOLUTELY NOTHING ABOUT WHAT I AM TALKING ABOUT. MY BLOG IS JUST A PLACE FOR ME TO REFLECT.
 

@@ -5,6 +5,9 @@ draft: false
 tags: ["Minecraft", "Plugin"]
 ---
 
+This actually took me so long...
+<!--more-->
+
 # Before Everything Else:
 A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn't really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server. The reason why I chose papermc is that it seems newest, with an out-standing performance and detailed documentation. Now of course, with a server able to run plugins, I wasn't going to just download everyone else's plugins. I decided to write my own.
 
@@ -77,6 +80,7 @@ class MangoExecutor(aliases: List<String?>, val logx: Logger) :
 Note that I put nothing in the second and third constructor of Command class, this is a bad practice, and I did it only for testing. It was time to get my sweet sweet .jar file. I ran the gradle:Build task and sure enough, I got my desired .jar file! It was in build/libs, I put it in the server, and... An error!
 {{< gallery caption-effect="fade" >}}
     {{< figure src="posts/firsttime_minecraftplugin/errorlog.jpg" link="posts/firsttime_minecraftplugin/errorlog.jpg" caption="error log" >}}
+    {{< figure src="posts/firsttime_minecraftplugin/successoutput.jpg" link="posts/firsttime_minecraftplugin/successoutput.jpg" caption="Success Log" >}}
 {{< /gallery >}}
 Also, I learnt that the gradle:Build task does the same thing as IntelliJ IDEA's build artifact, if IntelliJ IDEA just calls gradle for the build task. Also, you need kotlin to use JVM the same version as java, in this case, 17. So go to build,gradle and add this(if the code already exists, just change the number accordingly):
 ```

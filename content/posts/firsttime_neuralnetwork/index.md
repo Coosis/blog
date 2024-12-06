@@ -5,6 +5,9 @@ draft: false
 tags: ["Machine Learning", "Neural Network"]
 ---
 
+Neural network overview
+<!--more-->
+
 # Before Everything Else:
 So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a [neural network course](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) by [Andrej Karpathy](https://karpathy.ai/). Immediately I dived in.
 

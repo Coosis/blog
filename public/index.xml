@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <link>http://localhost:1313/</link>
+    <link>https://coosis.github.io/</link>
     <description>Recent content on </description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
     <lastBuildDate>Fri, 21 Jun 2024 23:00:51 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://coosis.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Iterators</title>
-      <link>http://localhost:1313/posts/goiterators/</link>
+      <link>https://coosis.github.io/posts/goiterators/</link>
       <pubDate>Fri, 21 Jun 2024 23:00:51 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/goiterators/</guid>
-      <description>&lt;h1 id=&#34;context&#34;&gt;Context:&lt;/h1&gt;&#xA;&lt;p&gt;So in Go 1.23, iterators are coming, apparently. So I went and tried to find out what they are and how they work.&#xA;I found this issue: &lt;a href=&#34;https://github.com/golang/go/issues/61405&#34;&gt;spec: add range over int, range over func #61405&lt;/a&gt;&#xA;I strongly encourage you to read it yourself. But, basically, what &lt;a href=&#34;https://github.com/rsc&#34;&gt;rsc&lt;/a&gt; is trying to propose is that, for loops should be able to iterate over numbers and functions, apart from the usual slices, arrays, maps, and channels.&#xA;The numbers part is pretty straightforward, it&amp;rsquo;s the function part that I want to focus on.&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/goiterators/</guid>
+      <description>&lt;p&gt;But what are Go iterators?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Disjoint-Set</title>
-      <link>http://localhost:1313/posts/disjointset/</link>
+      <link>https://coosis.github.io/posts/disjointset/</link>
       <pubDate>Sun, 24 Mar 2024 14:42:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/disjointset/</guid>
-      <description>&lt;h1 id=&#34;definition&#34;&gt;Definition:&lt;/h1&gt;&#xA;&lt;p&gt;The disjoint-set data structure is a data structure that is used to determine the set to which an element belongs.&lt;/p&gt;&#xA;&lt;h1 id=&#34;problem&#34;&gt;Problem:&lt;/h1&gt;&#xA;&lt;p&gt;Take the following example:&lt;/p&gt;&#xA;&lt;p&gt;A is with B, C is with D, E is with F, F is with C, G is with B.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;What&amp;rsquo;s the minimum number of sets to fit all the elements?&lt;/li&gt;&#xA;&lt;li&gt;Are A and D in the same set?&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;solution&#34;&gt;Solution:&lt;/h1&gt;&#xA;&lt;p&gt;Of course, we can use multiple linked lists to solve this. Disjoint-set is somewhat similar. Traditionally, disjoint-set is implemented as such:&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/disjointset/</guid>
+      <description>&lt;p&gt;Data structure for maintaining relations between elements.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Segment Tree</title>
-      <link>http://localhost:1313/posts/segmenttree/</link>
+      <link>https://coosis.github.io/posts/segmenttree/</link>
       <pubDate>Thu, 04 Jan 2024 20:08:59 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/segmenttree/</guid>
-      <description>&lt;h1 id=&#34;disclaimer&#34;&gt;DISCLAIMER:&lt;/h1&gt;&#xA;&lt;p&gt;I AM A TERRIBLE PROGRAMMER SO DO NOT TAKE THINGS I SAY SERIOUSLY. I KNOW ABUSOLUTELY NOTHING ABOUT WHAT I AM TALKING ABOUT. MY BLOG IS JUST A PLACE FOR ME TO REFLECT.&lt;/p&gt;&#xA;&lt;h1 id=&#34;definition&#34;&gt;Definition&lt;/h1&gt;&#xA;&lt;p&gt;The segment tree, is a data structure used for storing information about intervals or segments. It allows efficient altering of interval&amp;rsquo;s or segments&amp;rsquo;s information, querying about information on intervals or segments. In this blog I will keep it to intervals, the only reason of this is I only learnt about the interval part. Given a interval, we can create a tree to store information about this interval, like my very accurate and clear sketches:&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;&#xA;&#x9;  &#xA;    &#xA;    &lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/hugo-easy-gallery.css&#34; /&gt;&#xA;    &lt;div class=&#34;box&#34; &gt;&#xA;      &lt;figure  itemprop=&#34;associatedMedia&#34; itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;&#xA;    &#x9;&lt;div class=&#34;img&#34; style=&#34;background-image: url(&#39;http://localhost:1313/posts/segmenttree/ske01.jpg&#39;);&#34;&gt;&#xA;          &lt;img itemprop=&#34;thumbnail&#34; src=&#34;http://localhost:1313/posts/segmenttree/ske01.jpg&#34; alt=&#34;Sketch 1&#34;/&gt;&#xA;        &lt;/div&gt;&#xA;        &lt;a href=&#34;http://localhost:1313/posts/segmenttree/ske01.jpg&#34; itemprop=&#34;contentUrl&#34;&gt;&lt;/a&gt;&#xA;          &lt;figcaption&gt;&#xA;              &lt;p&gt;Sketch 1&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/segmenttree/</guid>
+      <description>&lt;p&gt;Data structure for storing information about intervals(very efficient btw).&lt;/p&gt;</description>
     </item>
     <item>
       <title>First-Time: IOS App</title>
-      <link>http://localhost:1313/posts/firsttime_developiosapp/</link>
+      <link>https://coosis.github.io/posts/firsttime_developiosapp/</link>
       <pubDate>Fri, 22 Dec 2023 23:20:34 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firsttime_developiosapp/</guid>
-      <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;Now a college student, I need a way to manage all my classes somehow. Of course, there&amp;rsquo;s the built-in calendar app that can do that, but I think we all know how difficult and frustrating it is to put all classes into the calendar app. I wanted to make my own.&lt;/p&gt;&#xA;&lt;h1 id=&#34;swift-and-swift-ui&#34;&gt;Swift and Swift UI:&lt;/h1&gt;&#xA;&lt;p&gt;Naturally, apple expects you to build app using Swift and Swift UI. Swift UI is a powerful framework used to build app for ios, watch os, ipad os and mac os, etc. And Swift is the underlying programming language. I rarely see people discuss Swift problems, so I assumed that there&amp;rsquo;s not much I can learn from. And I was right, apart from &lt;a href=&#34;https://developer.apple.com/documentation/swift/swift-standard-library&#34;&gt;apple&amp;rsquo;s own documentation&lt;/a&gt;, I did not find much to start with. Good thing it is well documented.&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/firsttime_developiosapp/</guid>
+      <description>&lt;p&gt;ios development overview&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Ollama with Godot</title>
-      <link>http://localhost:1313/posts/ollamawithgodot/</link>
+      <link>https://coosis.github.io/posts/ollamawithgodot/</link>
       <pubDate>Fri, 08 Dec 2023 15:50:38 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/ollamawithgodot/</guid>
-      <description>&lt;h1 id=&#34;intro-to-ollama&#34;&gt;Intro to Ollama:&lt;/h1&gt;&#xA;&lt;p&gt;I found a open source project: &lt;a href=&#34;https://ollama.ai/&#34;&gt;ollama&lt;/a&gt; by jmorganca. Github page:&lt;a href=&#34;https://github.com/jmorganca/ollama&#34;&gt;Ollama&lt;/a&gt;. Ollama lets you host language models and open up endpoints for other programs to use. The models are mainly open-sourced models like &lt;a href=&#34;https://ai.meta.com/llama/&#34;&gt;llama2&lt;/a&gt; from &lt;a href=&#34;https://ai.meta.com/&#34;&gt;Meta AI&lt;/a&gt;. Now all open-ai-privately-owns-its-models-for-profits nonsense aside, this got me very excited. Imagine a game where every NPC is able to produce dialogs by themselves, and we&amp;rsquo;re able to have a real conversation with them. Ask about the game world, or about their lives, and get actual response. How amazing is that?&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/ollamawithgodot/</guid>
+      <description>&lt;p&gt;What? You can have &amp;ldquo;alive&amp;rdquo; NPCs in your game?&lt;/p&gt;</description>
     </item>
     <item>
       <title>First-Time: Neural Network(overview)</title>
-      <link>http://localhost:1313/posts/firsttime_neuralnetwork/</link>
+      <link>https://coosis.github.io/posts/firsttime_neuralnetwork/</link>
       <pubDate>Sun, 03 Dec 2023 09:37:35 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firsttime_neuralnetwork/</guid>
-      <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;So one day, out of no where, I got thinking: How does a language model generate texts? I searched, and found a &lt;a href=&#34;https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ&#34;&gt;neural network course&lt;/a&gt; by &lt;a href=&#34;https://karpathy.ai/&#34;&gt;Andrej Karpathy&lt;/a&gt;. Immediately I dived in.&lt;/p&gt;&#xA;&lt;h1 id=&#34;structurehistory&#34;&gt;Structure/History:&lt;/h1&gt;&#xA;&lt;p&gt;The different stages of neural networks are the following:&#xA;Bigram (one character predicts the next one with a lookup table of counts)&#xA;MLP, following &lt;a href=&#34;https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf&#34;&gt;Bengio et al. 2003&lt;/a&gt;&#xA;CNN, following &lt;a href=&#34;https://arxiv.org/abs/1609.03499&#34;&gt;DeepMind WaveNet 2016&lt;/a&gt;&#xA;RNN, following &lt;a href=&#34;https://www.fit.vutbr.cz/research/groups/speech/publi/2010/mikolov_interspeech2010_IS100722.pdf&#34;&gt;Mikolov et al. 2010&lt;/a&gt;&#xA;LSTM, following &lt;a href=&#34;https://arxiv.org/abs/1308.0850&#34;&gt;Graves et al. 2014&lt;/a&gt;&#xA;GRU, following &lt;a href=&#34;https://arxiv.org/abs/1409.1259&#34;&gt;Kyunghyun Cho et al. 2014&lt;/a&gt;&#xA;Transformer, following &lt;a href=&#34;https://arxiv.org/abs/1706.03762&#34;&gt;Vaswani et al. 2017&lt;/a&gt;&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/firsttime_neuralnetwork/</guid>
+      <description>&lt;p&gt;Neural network overview&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dynamic WebPage</title>
-      <link>http://localhost:1313/posts/dynamicwebpage/</link>
+      <link>https://coosis.github.io/posts/dynamicwebpage/</link>
       <pubDate>Tue, 24 Oct 2023 10:12:12 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/dynamicwebpage/</guid>
-      <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;Remember how last time I promised to update once I learn more? It turned out that the web design contest has two groups: static, and dynamic. I wanted to try do a dynamic website, and oh boy was it a lot to unpack.&lt;/p&gt;&#xA;&lt;h1 id=&#34;static-and-dynamic&#34;&gt;Static and Dynamic?&lt;/h1&gt;&#xA;&lt;p&gt;According to &lt;a href=&#34;%22https://en.wikipedia.org/wiki/Static_web_page%22&#34;&gt;wikipedia&lt;/a&gt;, static web page is a web page that is delivered to a web browser exactly as stored, displays the same information for all user, and often stored in a .html file.&#xA;A dynamic website, however, is often a web page generated by a web application. Its contents shift based on user inputs, informations. Dynamic websites are combinations of frontend and backend.&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/dynamicwebpage/</guid>
+      <description>&lt;p&gt;Dynamic or not dynamic, that is the question&lt;/p&gt;</description>
     </item>
     <item>
       <title>First-Time: WebPage Design</title>
-      <link>http://localhost:1313/posts/firsttime_webdesign/</link>
+      <link>https://coosis.github.io/posts/firsttime_webdesign/</link>
       <pubDate>Sat, 09 Sep 2023 21:41:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firsttime_webdesign/</guid>
+      <guid>https://coosis.github.io/posts/firsttime_webdesign/</guid>
       <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;College just started. During one of the tours of the school, I found that there&amp;rsquo;s a Web-Design contest to be held by our school. Although I don&amp;rsquo;t have the first clue of writing html and css and javascript, I still wanted to go and try. There would also be sophomore, junior and senior students participate, but apparently as a freshman I can get bonus score so I would still have a chance. So I started looking into html&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>First-Time: Minecraft Plugin</title>
-      <link>http://localhost:1313/posts/firsttime_minecraftplugin/</link>
+      <link>https://coosis.github.io/posts/firsttime_minecraftplugin/</link>
       <pubDate>Fri, 18 Aug 2023 13:48:04 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firsttime_minecraftplugin/</guid>
-      <description>&lt;h1 id=&#34;before-everything-else&#34;&gt;Before Everything Else:&lt;/h1&gt;&#xA;&lt;p&gt;A week ago, a friend of mine was planning to set up a minecraft server. I got excited, since I have a spare RaspberryPi 4 with 8 gigs of ram ready to be put to use. But with a 32-bit os, it wasn&amp;rsquo;t really fit for the job. So I started to use my old laptop. I installed pop!_os, downloaded java 17, and after some research, set up a papermc server. The reason why I chose papermc is that it seems newest, with an out-standing performance and detailed documentation. Now of course, with a server able to run plugins, I wasn&amp;rsquo;t going to just download everyone else&amp;rsquo;s plugins. I decided to write my own.&lt;/p&gt;</description>
+      <guid>https://coosis.github.io/posts/firsttime_minecraftplugin/</guid>
+      <description>&lt;p&gt;This actually took me so long&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>My First Blog</title>
-      <link>http://localhost:1313/posts/firstpost/</link>
+      <link>https://coosis.github.io/posts/firstpost/</link>
       <pubDate>Fri, 11 Aug 2023 17:01:59 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/posts/firstpost/</guid>
+      <guid>https://coosis.github.io/posts/firstpost/</guid>
       <description>&lt;p&gt;This is my first blog.&#xA;This post acts as a test for the site.&#xA;I would write more blogs, if possible.&lt;/p&gt;&#xA;&lt;p&gt;A simple line code:&#xA;&lt;code&gt;let a = 5;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;A simple code block:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;&#xA;using namespace std;&#xA;&#xA;int main(){&#xA;    return 0;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>About Me</title>
-      <link>http://localhost:1313/page/about/</link>
+      <link>https://coosis.github.io/page/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>coosislee@gmail.com (Coosis)</author>
-      <guid>http://localhost:1313/page/about/</guid>
+      <guid>https://coosis.github.io/page/about/</guid>
       <description>&lt;p&gt;My name is Coosis. I enjoy coding.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Know a bit about golang&lt;/li&gt;&#xA;&lt;li&gt;I am alive&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;What else do you need?&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-history&#34;&gt;My History&lt;/h3&gt;&#xA;&lt;p&gt;I have been playing around with my computer for as long as I can remember.&#xA;I learnt a bit about some languages, and golang is what I&amp;rsquo;m particularly good at.&lt;/p&gt;</description>
     </item>
   </channel>

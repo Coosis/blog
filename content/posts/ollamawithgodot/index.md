@@ -4,6 +4,9 @@ date: 2023-12-08T15:50:38+08:00
 draft: false
 ---
 
+What? You can have "alive" NPCs in your game?
+<!--more-->
+
 # Intro to Ollama:
 I found a open source project: [ollama](https://ollama.ai/) by jmorganca. Github page:[Ollama](https://github.com/jmorganca/ollama). Ollama lets you host language models and open up endpoints for other programs to use. The models are mainly open-sourced models like [llama2](https://ai.meta.com/llama/) from [Meta AI](https://ai.meta.com/). Now all open-ai-privately-owns-its-models-for-profits nonsense aside, this got me very excited. Imagine a game where every NPC is able to produce dialogs by themselves, and we're able to have a real conversation with them. Ask about the game world, or about their lives, and get actual response. How amazing is that?
 
