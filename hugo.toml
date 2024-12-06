@@ -47,7 +47,7 @@ theme = 'beautifulhugo'
 
 [services]
   [services.googleAnalytics]
-    id = ''
+    id = 'G-V27ETEVEY8'
 
 [[menu.main]]
     name = "Blog"
