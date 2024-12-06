@@ -2,6 +2,7 @@
 title: "Go Iterators"
 date: 2024-06-21T23:00:51+08:00
 draft: false
+tags: ["go", "iterator"]
 ---
 
 But what are Go iterators?

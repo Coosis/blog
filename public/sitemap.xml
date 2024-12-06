@@ -3,13 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2024-12-06T16:47:07+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-12-06T16:47:07+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/vimsearchandreplace/</loc>
+    <lastmod>2024-12-06T16:47:07+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/go/</loc>
     <lastmod>2024-06-21T23:00:51+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/goiterators/</loc>
     <lastmod>2024-06-21T23:00:51+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://localhost:1313/tags/iterator/</loc>
     <lastmod>2024-06-21T23:00:51+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-06-21T23:00:51+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/data-structure/</loc>
+    <lastmod>2024-03-24T14:42:34+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/disjoint-set/</loc>
+    <lastmod>2024-03-24T14:42:34+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/disjointset/</loc>
     <lastmod>2024-03-24T14:42:34+08:00</lastmod>
@@ -29,8 +47,14 @@
     <loc>http://localhost:1313/tags/swift/</loc>
     <lastmod>2023-12-22T23:20:34+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2023-12-22T23:20:34+08:00</lastmod>
+    <loc>http://localhost:1313/tags/ai/</loc>
+    <lastmod>2023-12-08T15:50:38+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/godot/</loc>
+    <lastmod>2023-12-08T15:50:38+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ollama/</loc>
+    <lastmod>2023-12-08T15:50:38+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ollamawithgodot/</loc>
     <lastmod>2023-12-08T15:50:38+08:00</lastmod>

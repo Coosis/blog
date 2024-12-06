@@ -12,9 +12,9 @@
  
 
 
-      <title>Use Ollama with Godot - Coosis&#39;s Blog</title>
+      <title>Vimsearchandreplace - Coosis&#39;s Blog</title>
 
-  <meta name="description" content="What? You can have &ldquo;alive&rdquo; NPCs in your game?">
+  <meta name="description" content="Blazingly fast!!!!">
   <meta name="author" content="Coosis"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -50,8 +50,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "http:\/\/localhost:1313\/posts\/ollamawithgodot\/",
-          "name": "Use ollama with godot"
+          "@id": "http:\/\/localhost:1313\/posts\/vimsearchandreplace\/",
+          "name": "Vimsearchandreplace"
         }
     }]
 }
@@ -62,15 +62,15 @@
   "author": {
     "name" : "Coosis"
   },
-  "headline": "Use Ollama with Godot",
-  "description" : "What? You can have \u0026ldquo;alive\u0026rdquo; NPCs in your game?\n",
+  "headline": "Vimsearchandreplace",
+  "description" : "Blazingly fast!!!!\n",
   "inLanguage" : "en",
-  "wordCount":  602 ,
-  "datePublished" : "2023-12-08T15:50:38\u002b08:00",
-  "dateModified" : "2023-12-08T15:50:38\u002b08:00",
+  "wordCount":  571 ,
+  "datePublished" : "2024-12-06T16:47:07\u002b08:00",
+  "dateModified" : "2024-12-06T16:47:07\u002b08:00",
   "image" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
-  "keywords" : [ "Godot, Ollama, AI" ],
-  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/ollamawithgodot\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/vimsearchandreplace\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "http:\/\/localhost:1313\/",
@@ -85,15 +85,15 @@
 </script>
 
 
-<meta property="og:title" content="Use Ollama with Godot" />
-<meta property="og:description" content="What? You can have &ldquo;alive&rdquo; NPCs in your game?">
+<meta property="og:title" content="Vimsearchandreplace" />
+<meta property="og:description" content="Blazingly fast!!!!">
 <meta property="og:image" content="http://localhost:1313/img/ClearHead2.ico" />
-<meta property="og:url" content="http://localhost:1313/posts/ollamawithgodot/" />
+<meta property="og:url" content="http://localhost:1313/posts/vimsearchandreplace/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Use Ollama with Godot" />
-  <meta name="twitter:description" content="What? You can have &ldquo;alive&rdquo; NPCs in your game?">
+  <meta name="twitter:title" content="Vimsearchandreplace" />
+  <meta name="twitter:description" content="Blazingly fast!!!!">
   <meta name="twitter:image" content="http://localhost:1313/img/ClearHead2.ico" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@CoosisV" />
@@ -234,7 +234,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Use Ollama with Godot</h1>
+                <h1>Vimsearchandreplace</h1>
               
               
                 <hr class="small">
@@ -255,86 +255,57 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>What? You can have &ldquo;alive&rdquo; NPCs in your game?</p>
-<h1 id="intro-to-ollama">Intro to Ollama:</h1>
-<p>I found a open source project: <a href="https://ollama.ai/">ollama</a> by jmorganca. Github page:<a href="https://github.com/jmorganca/ollama">Ollama</a>. Ollama lets you host language models and open up endpoints for other programs to use. The models are mainly open-sourced models like <a href="https://ai.meta.com/llama/">llama2</a> from <a href="https://ai.meta.com/">Meta AI</a>. Now all open-ai-privately-owns-its-models-for-profits nonsense aside, this got me very excited. Imagine a game where every NPC is able to produce dialogs by themselves, and we&rsquo;re able to have a real conversation with them. Ask about the game world, or about their lives, and get actual response. How amazing is that?</p>
-<h1 id="mechanism">Mechanism:</h1>
-<p>The <a href="https://github.com/jmorganca/ollama/blob/main/docs/api.md">API docs</a> at ollama site is very clear and instructive. After following it I was able to set up a model running on my macbook. Then I opened up godot. Now, to interact with the model, you send a httprequest to the endpoint with your query information using .json files, and a response will be generated back to you, in .json format. Visit <a href="https://github.com/jmorganca/ollama/blob/main/docs/api.md">API docs</a> to see list of all possible parameters in the query.</p>
-<h1 id="doing-it-badly">Doing it&hellip; badly:</h1>
-<p>In godot, http requests are made easy with the use of httprequest nodes. They have a signal called request_conpleted, which will emit when the http request is finished, that is, when the full response is received. This is what I did at first. I used <code>JSON.stringify()</code> to create a json object for query, send the json on the click of a button, and handled the response using something like <code>json.parse(body.get_string_from_utf8())</code>. This worked, and I was very excited about it, but it soon hit me: this is not ideal, as the response can only show when the entire process is finished. When using models like copilot chat and chatgpt and bard, the response is extended bit by bit. I wanted to achieve a similar effect. But if anyone is curious about the original code, here&rsquo;s that:</p>
-<pre tabindex="0"><code>#Used when button is clicked
-func legacy():
-	var http_request = $HTTPRequest  # Reference to your HTTPRequest node
-
-	var body = JSON.stringify({
-		&#34;model&#34;: &#34;llama2&#34;,
-		&#34;prompt&#34;: textbud.text,
-		&#34;stream&#34;: false
-	})
-	
-	http_request.request(websocket_url, [], HTTPClient.METHOD_POST, body)
-
-#Connected to the signal mentioned
-func _on_http_request_request_completed(result, response_code, headers, body):
-	var json = JSON.new()
-	json.parse(body.get_string_from_utf8())
-	var response = json.get_data()
-	print(response[&#34;response&#34;])
-	lab.text = response[&#34;response&#34;]
-</code></pre><h1 id="doing-it">Doing it:</h1>
-<p>After looking through the documentation for godot 4, I quickly found out that using httprequest nodes is not going to cut it. The httprequest nodes are build from HTTPClient, therefore I have to implement from HTTPClient. I needed to handle connection, polling, status-checking and data-retriving. Here&rsquo;s the code:
-Side note: I wrote this in the script of a HBoxContainer to make it easier to show the response.</p>
-<pre tabindex="0"><code>extends HBoxContainer
-
-@onready var textbud = $TextEdit
-@onready var lab = $Label
-
-# The URL we will connect to
-var websocket_url = &#34;http://localhost:11434/api/generate&#34;
-var err = 0
-var client # Create the Client.
-var connected = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	client = HTTPClient.new()
-	err = client.connect_to_host(&#34;http://localhost&#34;, 11434)
-	assert(err == OK)
-
-# Called every frame. &#39;delta&#39; is the elapsed time since the previous frame.
-func _process(delta):
-	client.poll()
-	if(client.get_status() == HTTPClient.STATUS_CONNECTING or client.get_status() == HTTPClient.STATUS_RESOLVING):
-		if(!connected):
-			print(&#34;Connecting...&#34;)
-	elif(client.get_status() == HTTPClient.STATUS_CONNECTED):
-		if(!connected):
-			connected = true
-			print(&#34;Connected!&#34;)
-	elif(client.get_status() == HTTPClient.STATUS_DISCONNECTED):
-		if(connected):
-			connected = false
-			print(&#34;Disconnected!&#34;)
-	elif(client.get_status() == HTTPClient.STATUS_BODY):
-		print(&#34;Requesting...&#34;)
-		if(client.has_response()):
-			var chunk = client.read_response_body_chunk()
-			var jsdata = JSON.new()
-			jsdata.parse(chunk.get_string_from_utf8())
-			var data = jsdata.get_data()
-			if(data != null):
-				print(data[&#34;response&#34;])
-				lab.text += data[&#34;response&#34;]
-
-func _on_button_pressed():
-	var query_string = JSON.stringify({
-		&#34;model&#34;: &#34;llama2&#34;,
-		&#34;prompt&#34;: textbud.text,
-		&#34;stream&#34;: true
-	})
-	var headers = [&#34;Content-Type: application/x-www-form-urlencoded&#34;, &#34;Content-Length: &#34; + str(query_string.length())]
-	var result = client.request(HTTPClient.METHOD_POST, &#34;/api/generate&#34;, [], query_string)
-</code></pre><h1 id="result">Result:</h1>
+        <p>Blazingly fast!!!!</p>
+<h1 id="searchreplace-in-nvim">Search/Replace in Nvim</h1>
+<p>In neovim, use <code>:s</code> command to search/replace. The syntax of <code>:s</code> command is as follows:</p>
+<pre tabindex="0"><code>:[range]s[ubstitute]/{pattern}/{string}/[flags] [count]
+</code></pre><p>You can also do <code>:h :s</code> to read the documentation for <code>:s</code>.</p>
+<p><code>[range]</code> means the range of lines you want to search/replace.</p>
+<p><code>[flags]</code> can be <code>g</code> for global, <code>c</code> for confirm, <code>i</code> for ignore case, etc. There are many flags, but I won&rsquo;t cover them all here.</p>
+<p><code>[count]</code> means starting from some line(within <code>[range]</code>), how many lines you want to replace.</p>
+<h2 id="range"><code>[range]</code></h2>
+<p><code>[range]</code> can be a line number:</p>
+<pre tabindex="0"><code>12
+</code></pre><p>a range:</p>
+<pre tabindex="0"><code>12,15
+</code></pre><p>the whole file:</p>
+<pre tabindex="0"><code>%
+</code></pre><p>Note that <code>'&lt;</code> and <code>'&gt;</code> represent the visual mode selected area, and <code>.</code> represents the current line.
+When <code>[range]</code> is not specified, it defaults to the current line.</p>
+<h1 id="example">Example</h1>
+<h2 id="example-1-replace-foo-with-bar-in-the-current-line">Example 1: Replace <code>foo</code> with <code>bar</code> in the current line</h2>
+<pre tabindex="0"><code>:s/foo/bar/
+</code></pre><h2 id="example-2-replace-foo-with-bar-in-line-3">Example 2: Replace <code>foo</code> with <code>bar</code> in line 3</h2>
+<pre tabindex="0"><code>:3s/foo/bar/
+</code></pre><h2 id="example-3-replace-foo-with-bar-in-the-whole-line">Example 3: Replace <code>foo</code> with <code>bar</code> in the whole line</h2>
+<pre tabindex="0"><code>:s/foo/bar/g
+</code></pre><h2 id="example-4-replace-foo-with-bar-through-out-the-whole-file">Example 4: Replace <code>foo</code> with <code>bar</code> through out the whole file</h2>
+<pre tabindex="0"><code>:%s/foo/bar/g
+</code></pre><p>Note that <code>%</code> means the whole file, and <code>g</code> means replace all <code>foo</code> on the line.</p>
+<h2 id="example-5-replace-foo-with-bar-in-a-selected-range">Example 5: Replace <code>foo</code> with <code>bar</code> in a selected range</h2>
+<p>First go in <code>visual</code> mode, select some texts, then press <code>:</code>, at which point the command line will show <code>:'&lt;,'&gt;</code>. Then type the replace command normally,
+without the need to manually type out the selected range:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/foo/bar/g
+</code></pre><h1 id="capture-group">Capture Group</h1>
+<p><code>{pattern}</code> and <code>{string}</code> actually uses regex, so capture groups are also supported.</p>
+<p>The syntax for capture group is <code>\(\)</code>. If you include <code>\v</code>(<code>very magic mode</code>), the syntax simplify to <code>()</code>.</p>
+<p>To use the contents of captured groups, use <code>\i</code> where <code>i</code> is an integer starting from 1.</p>
+<p>Consider the following example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">let</span> <span style="color:#a6e22e">Field1</span> = <span style="color:#e6db74">&#34;foo&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">let</span> <span style="color:#a6e22e">Field2</span> = <span style="color:#e6db74">&#34;bar&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">let</span> <span style="color:#a6e22e">Field3</span> = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">let</span> <span style="color:#a6e22e">Field4</span> = <span style="color:#ae81ff">3.14</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Oh no, I accidentally messed up golang&rsquo;s syntax. The correct syntax should be:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">Fieldx</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">someval</span>
+</span></span></code></pre></div><p>Select the text in visual mode and use following command:
+(small tip: when cursor is above any of <code>()</code> <code>{}</code> <code>[]</code>, use <code>%</code> to jump to matching character)
+When using <code>very magic mode</code>:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/\vlet (\w+) \= (.+)/\1 := \2
+</code></pre><p>When not using <code>very magic mode</code>:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/let \(\w\+\) = \(.\+\)/\1 := \2
+</code></pre><p>Please note that in <code>very magic mode</code>, <code>=</code> need escaping to match.
 
 
 
@@ -344,40 +315,48 @@ func _on_button_pressed():
     <link rel="stylesheet" href="http://localhost:1313/css/hugo-easy-gallery.css" />
     <div class="box" >
       <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    	<div class="img" style="background-image: url('http://localhost:1313/posts/ollamawithgodot/res1.png');">
-          <img itemprop="thumbnail" src="http://localhost:1313/posts/ollamawithgodot/res1.png" alt="Result 1"/>
+    	<div class="img" style="background-image: url('http://localhost:1313/posts/vimsearchandreplace/video1.mov');">
+          <img itemprop="thumbnail" src="http://localhost:1313/posts/vimsearchandreplace/video1.mov" alt="Capture Group"/>
         </div>
-        <a href="http://localhost:1313/posts/ollamawithgodot/res1.png" itemprop="contentUrl"></a>
+        <a href="http://localhost:1313/posts/vimsearchandreplace/video1.mov" itemprop="contentUrl"></a>
           <figcaption>
-              <p>Result 1</p>
+              <p>Capture Group</p>
           </figcaption>
       </figure>
     </div>
 
-    
-    
-    <div class="box" >
-      <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    	<div class="img" style="background-image: url('http://localhost:1313/posts/ollamawithgodot/res2.png');">
-          <img itemprop="thumbnail" src="http://localhost:1313/posts/ollamawithgodot/res2.png" alt="Result 2"/>
-        </div>
-        <a href="http://localhost:1313/posts/ollamawithgodot/res2.png" itemprop="contentUrl"></a>
-          <figcaption>
-              <p>Result 2</p>
-          </figcaption>
-      </figure>
-    </div>
 
+</div>
+</p>
+<h2 id="real-world-example-1-filtering-dictionary">Real-world example 1: filtering dictionary</h2>
+<p>Suppose i have a dictionary(not necessarily <code>json</code>) with similar structure, and I wish to skim through all key-value pairs where the value is a number.</p>
+<pre tabindex="0"><code>    &#34;key1&#34;: &#34;val1&#34;,
+    &#34;key2&#34;: 2,
+    &#34;key3&#34;: 3.14,
+    &#34;key6&#34;: {
+        &#34;key7&#34;: 7
+        &#34;key8&#34;: &#34;val8&#34;
+    },
+    &#34;key4&#34;: &#34;val4&#34;,
+    &#34;key5&#34;: 5
+}
+</code></pre><p>Select the dictionary, and use following command:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/\v\s+&#34;\w+&#34;: &#34;\w+&#34;,*\n/
+</code></pre>
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
     
     
     <div class="box" >
       <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    	<div class="img" style="background-image: url('http://localhost:1313/posts/ollamawithgodot/res2.png');">
-          <img itemprop="thumbnail" src="http://localhost:1313/posts/ollamawithgodot/res2.png" alt="Result 3"/>
+    	<div class="img" style="background-image: url('http://localhost:1313/posts/vimsearchandreplace/video2.mov');">
+          <img itemprop="thumbnail" src="http://localhost:1313/posts/vimsearchandreplace/video2.mov" alt="example 1"/>
         </div>
-        <a href="http://localhost:1313/posts/ollamawithgodot/res2.png" itemprop="contentUrl"></a>
+        <a href="http://localhost:1313/posts/vimsearchandreplace/video2.mov" itemprop="contentUrl"></a>
           <figcaption>
-              <p>Result 3</p>
+              <p>example 1</p>
           </figcaption>
       </figure>
     </div>
@@ -385,19 +364,64 @@ func _on_button_pressed():
 
 </div>
 
-        
-          <div class="blog-tags">
-            
-              
-              <a href="http://localhost:1313/tags/godot/">Godot</a>&nbsp;
-            
-              
-              <a href="http://localhost:1313/tags/ollama/">Ollama</a>&nbsp;
-            
-              
-              <a href="http://localhost:1313/tags/ai/">AI</a>&nbsp;
-            
-          </div>
+<h2 id="real-world-example-2-refactoring-code">Real-world example 2: refactoring code</h2>
+<p>Consider the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> increment1 = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> increment2 = <span style="color:#ae81ff">23</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> increment3 = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> increment4 = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> increment5 = <span style="color:#ae81ff">289</span>
+</span></span></code></pre></div><p>You wish to turn these numeric constants into lambda expressions, i.e.:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> incrementx = { y <span style="color:#66d9ef">in</span> y <span style="color:#f92672">+</span> z }
+</span></span></code></pre></div><p>Select the code, and use the following command:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/\vlet (\w+) \= (.+)/let \1 = { x in x + \2 }
+</code></pre><p>
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
+    
+    
+    <div class="box" >
+      <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    	<div class="img" style="background-image: url('http://localhost:1313/posts/vimsearchandreplace/video3.mov');">
+          <img itemprop="thumbnail" src="http://localhost:1313/posts/vimsearchandreplace/video3.mov" alt="example 2"/>
+        </div>
+        <a href="http://localhost:1313/posts/vimsearchandreplace/video3.mov" itemprop="contentUrl"></a>
+          <figcaption>
+              <p>example 2</p>
+          </figcaption>
+      </figure>
+    </div>
+
+
+</div>
+
+Of course, more simpler instructions exist, such as directly replacing the constant after the equal sign. But capturing the variable names in front provides other benefits:
+Control their capitalization, or even add a prefix/suffix to them.</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/\vlet (\w+) \= (.+)/let \U\1\E = { x in x + \2 }
+</code></pre>
+
+
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	  
+    
+    
+    <div class="box" >
+      <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    	<div class="img" style="background-image: url('http://localhost:1313/posts/vimsearchandreplace/video4.mov');">
+          <img itemprop="thumbnail" src="http://localhost:1313/posts/vimsearchandreplace/video4.mov" alt="example 3"/>
+        </div>
+        <a href="http://localhost:1313/posts/vimsearchandreplace/video4.mov" itemprop="contentUrl"></a>
+          <figcaption>
+              <p>example 3</p>
+          </figcaption>
+      </figure>
+    </div>
+
+
+</div>
+
         
 
         
@@ -410,42 +434,42 @@ func _on_button_pressed():
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f&amp;text=Use%20Ollama%20with%20Godot&amp;via=CoosisV" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f&amp;text=Vimsearchandreplace&amp;via=CoosisV" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f&amp;title=Use%20Ollama%20with%20Godot" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f&amp;title=Vimsearchandreplace" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f&amp;title=Use%20Ollama%20with%20Godot" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f&amp;title=Vimsearchandreplace" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f&amp;title=Use%20Ollama%20with%20Godot" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f&amp;title=Vimsearchandreplace" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2follamawithgodot%2f&amp;description=Use%20Ollama%20with%20Godot" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fvimsearchandreplace%2f&amp;description=Vimsearchandreplace" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -468,13 +492,9 @@ func _on_button_pressed():
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="http://localhost:1313/posts/firsttime_neuralnetwork/" data-toggle="tooltip" data-placement="top" title="First-Time: Neural Network(overview)">&larr; Previous Post</a>
+              <a href="http://localhost:1313/posts/goiterators/" data-toggle="tooltip" data-placement="top" title="Go Iterators">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="http://localhost:1313/posts/firsttime_developiosapp/" data-toggle="tooltip" data-placement="top" title="First-Time: IOS App">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
