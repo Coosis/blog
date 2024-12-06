@@ -45,6 +45,10 @@ theme = 'beautifulhugo'
 #  src = "img/hexagon.jpg"
 #  desc = "Hexagon"
 
+[services]
+  [services.googleAnalytics]
+    id = ''
+
 [[menu.main]]
     name = "Blog"
     url = ""
