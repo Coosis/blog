@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on </title>
+    <link>http://localhost:1313/tags/go/</link>
+    <description>Recent content in Go on </description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
+    <webMaster>coosislee@gmail.com (Coosis)</webMaster>
+    <lastBuildDate>Fri, 21 Jun 2024 23:00:51 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Iterators</title>
+      <link>http://localhost:1313/posts/goiterators/</link>
+      <pubDate>Fri, 21 Jun 2024 23:00:51 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
+      <guid>http://localhost:1313/posts/goiterators/</guid>
+      <description>&lt;p&gt;But what are Go iterators?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

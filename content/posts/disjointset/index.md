@@ -2,6 +2,7 @@
 title: "Disjoint-Set"
 date: 2024-03-24T14:42:34+08:00
 draft: false
+tags: ["data-structure", "disjoint-set"]
 ---
 
 Data structure for maintaining relations between elements.

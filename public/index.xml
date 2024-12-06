@@ -8,8 +8,15 @@
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
-    <lastBuildDate>Fri, 21 Jun 2024 23:00:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Dec 2024 16:47:07 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vimsearchandreplace</title>
+      <link>http://localhost:1313/posts/vimsearchandreplace/</link>
+      <pubDate>Fri, 06 Dec 2024 16:47:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
+      <guid>http://localhost:1313/posts/vimsearchandreplace/</guid>
+      <description>&lt;p&gt;Blazingly fast!!!!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go Iterators</title>
       <link>http://localhost:1313/posts/goiterators/</link>

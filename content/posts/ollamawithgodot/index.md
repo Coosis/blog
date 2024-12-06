@@ -2,6 +2,7 @@
 title: "Use Ollama with Godot"
 date: 2023-12-08T15:50:38+08:00
 draft: false
+tags: ["Godot", "Ollama", "AI"]
 ---
 
 What? You can have "alive" NPCs in your game?
