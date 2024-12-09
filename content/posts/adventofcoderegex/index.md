@@ -85,7 +85,7 @@ This got me:
 Now that I have all the results, I just need to sum them up. 
 I can do this with:
 ```
-ggqtviw"ayddviw"bydd:let @c = string(str2nr(@a) + str2nr(@b))"<CR>@cPa<Enter>jq"
+ggqtviw"ayddviw"bydd:let @c = string(str2nr(@a) + str2nr(@b))<CR>"@cPa<Enter>jq"
 ```
 This is similar to the previous command, so I won't elaborate.
 After recording, I still had 727 lines, so I just typed `727@t` to sum them all up.
@@ -108,7 +108,7 @@ instead I should have used `:%s/\n/@/g` to replace the newline with `@`, so new 
 won't form.
 
 
-My immediate thought is do match the `do()` and `don't()`. But at the start the state is `true`. 
+My immediate thought is to match the `do()`s and `don't()`s. But at the start the state is `true`. 
 Easy fix, I just manually appended a `do()` at the start of the string. 
 Now let's find all the `mul(x,y)` that are inside the `do()` and `don't()`. Let's start by 
 replacing all the `don't()` with `\r`. The idea is that all occurrences of `mul(x,y)` that are 
@@ -119,21 +119,21 @@ after `don't()` and have not encountered a `do()` are not considered. It'll make
 Now the string still don't make sense. That's ok. Now the problem is: In each line, 
 until you meet a `do()`, all `mul(x,y)` are not considered. So let's expose all the 
 lines that have `do()`, and move the `do()` to the beginning of the line, also append newline 
-for clearity
+for clearity.
 ```
 :%s/\v.{-}(do\(\).*)/\1\r/g
 ```
 Now the string is starting to make sense:
 ```
 ...
-do()[from() ,what()~mul(97,535);~mul(526,845)/[~}mul(827,275)how()mul(852,966)})]when()-'$mul(894,978)'['>mul(99,314)
+do()[from() ,what()~mul(97,535);~mul(526,845)...
 
-do()'&-> why()mul(755,634)select()?[who()!where(698,921)*select()where()mul(111,473)when()&}mul(616/%[what()^from()how()^>mul(511,223)select()*when()/-,+what()why()
+do()'&-> why()mul(755,634)select()?[who()!whe...
 
->why()}(+)how()where()when()mul#where()mul(310,171)when()why(){%$>)how()+mul(535,384)['how()^/mul(157,599)]mul(916,257)@when()from(){
-when()who();; where()^what()how()~mul(668,57)%+mul(923,967)&(who()from(101,122)why()^mul(327($where()/;/+mul(817,835)?(mul(863,760)#mul(254,722)}+why()mul(399,61)$who()from()where()who()mul(533,810)>:+what(394,757) $mul(252,667)}what()+$mul(342,546)*)*>
-from(), how()<]^who();mul(629,290)what()mul(234,255)!when(292,811)#from()##why()what()who()
-do()select()~~from()>}mul(372,283)>%why()/<mul(423,194)%mul;[*where()+-)why()mul(573,554)$]/mul(936,543)what()why()-mul(999,520)'@;where()mul(71,216)*mul(344,530:who()*(-+*,mul(74,631)${mul(182,864):^when()~[+mul(618,708)]~mul(634,370))#:#-'/>mul&]]
+>why()}(+)how()where()when()mul#where()mul(31...
+when()who();; where()^what()how()~mul(668,57)...
+from(), how()<]^who();mul(629,290)what()mul(2...
+do()select()~~from()>}mul(372,283)>%why()/<mu...
 ...
 ```
 Notice now some line has `do()` at the beginning. These are the lines we care about. 
@@ -155,15 +155,15 @@ You can probably change the command a bit to make it look nicer:
 ```
 ...
 
-do()select()~~from()>}mul(372,283)>%why()/<mul(423,194)%mul;[*where()+-)why()mul(573,554)$]/mul(936,543)what()why()-mul(999,520)'@;where()mul(71,216)*mul(344,530:who()*(-+*,mul(74,631)${mul(182,864):^when()~[+mul(618,708)]~mul(634,370))#:#-'/>mul&]]
+do()select()~~from()>}mul(372,283)>%why(...
 
 
-do():~ ~;*:{*mul*select()from(984,969)mul(377,382),'how()-?!>mulwho(),who()how()#mul(479,732)$<;*from()who() mul(371,96)$;(>mul(987,681)who()from())why()do()>who()$-mul(315,10)((:from()*where()@)+mul(279,804)-where(){%when()*mul(680,426)>/@do();mul(68,45) +#(-!#mul(630,936)select()mul(370,414)'-#how(612,677)}
+do():~ ~;*:{*mul*select()from(984,969)mu...
 
-do()from()+when()mul(753,641)~{ +mul(817,120)~;'?>from()%'what()mul(497,124)[)where()$ 
+do()from()+when()mul(753,641)~{ +mul(817...
 
 
-do()>]&'* *,mul(531,698+)#where()who()(from()@;}mul(336,925)$what()~why()mul(672,818)who()^from():?[@what()<mul(353,321)how():$(mul(243,816):@ >,'%?+from()mul(710,158)when()?+mul(692,848)+what()/mul(771,109?}how():):from(),>$,
+do()>]&'* *,mul(531,698+)#where()who()(f...
 ...
 ```
 
@@ -188,10 +188,11 @@ The result was:
 
 Similar to the first part, there are some garbage lines. This time there are multiple lines, 
 so we have to use command: 
+(Also, I got lucky because none of the garbage lines had digits at the start)
 ```
 :%s/\v^\D.*$\n//
 ```
-And now to get rid of the newlines, I used:
+And now to get rid of the empty lines, I used:
 ```
 :%s/\v^\n//
 ```
