@@ -12,9 +12,9 @@
  
 
 
-      <title>Disjoint-Set - Coosis&#39;s Blog</title>
+      <title>I did Advent of Code using neovim - Coosis&#39;s Blog</title>
 
-  <meta name="description" content="Data structure for maintaining relations between elements.">
+  <meta name="description" content="It&rsquo;s only one day but&hellip;">
   <meta name="author" content="Coosis"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -50,8 +50,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "http:\/\/localhost:1313\/posts\/disjointset\/",
-          "name": "Disjoint set"
+          "@id": "http:\/\/localhost:1313\/posts\/adventofcoderegex\/",
+          "name": "I did advent of code using neovim"
         }
     }]
 }
@@ -62,15 +62,15 @@
   "author": {
     "name" : "Coosis"
   },
-  "headline": "Disjoint-Set",
-  "description" : "Data structure for maintaining relations between elements.\n",
+  "headline": "I did Advent of Code using neovim",
+  "description" : "It\u0026rsquo;s only one day but\u0026hellip;\n",
   "inLanguage" : "en",
-  "wordCount":  856 ,
-  "datePublished" : "2024-03-24T14:42:34\u002b08:00",
-  "dateModified" : "2024-03-24T14:42:34\u002b08:00",
+  "wordCount":  1029 ,
+  "datePublished" : "2024-12-08T20:13:22\u002b08:00",
+  "dateModified" : "2024-12-08T20:13:22\u002b08:00",
   "image" : "http:\/\/localhost:1313\/img\/ClearHead2.ico",
-  "keywords" : [ "data-structure, disjoint-set" ],
-  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/disjointset\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "http:\/\/localhost:1313\/posts\/adventofcoderegex\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "http:\/\/localhost:1313\/",
@@ -85,15 +85,15 @@
 </script>
 
 
-<meta property="og:title" content="Disjoint-Set" />
-<meta property="og:description" content="Data structure for maintaining relations between elements.">
+<meta property="og:title" content="I did Advent of Code using neovim" />
+<meta property="og:description" content="It&rsquo;s only one day but&hellip;">
 <meta property="og:image" content="http://localhost:1313/img/ClearHead2.ico" />
-<meta property="og:url" content="http://localhost:1313/posts/disjointset/" />
+<meta property="og:url" content="http://localhost:1313/posts/adventofcoderegex/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="" />
 
-  <meta name="twitter:title" content="Disjoint-Set" />
-  <meta name="twitter:description" content="Data structure for maintaining relations between elements.">
+  <meta name="twitter:title" content="I did Advent of Code using neovim" />
+  <meta name="twitter:description" content="It&rsquo;s only one day but&hellip;">
   <meta name="twitter:image" content="http://localhost:1313/img/ClearHead2.ico" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@CoosisV" />
@@ -234,7 +234,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Disjoint-Set</h1>
+                <h1>I did Advent of Code using neovim</h1>
               
               
                 <hr class="small">
@@ -255,118 +255,166 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Data structure for maintaining relations between elements.</p>
-<h1 id="definition">Definition:</h1>
-<p>The disjoint-set data structure is a data structure that is used to determine the set to which an element belongs.</p>
-<h1 id="problem">Problem:</h1>
-<p>Take the following example:</p>
-<p>A is with B, C is with D, E is with F, F is with C, G is with B.</p>
-<ol>
-<li>What&rsquo;s the minimum number of sets to fit all the elements?</li>
-<li>Are A and D in the same set?</li>
-</ol>
-<h1 id="solution">Solution:</h1>
-<p>Of course, we can use multiple linked lists to solve this. Disjoint-set is somewhat similar. Traditionally, disjoint-set is implemented as such:</p>
-<pre tabindex="0"><code>int f[N];
-void init() {
-    for (int i = 1; i &lt;= n; i++) f[i] = i;
-}
-</code></pre><p>Where <code>f[i]</code> is the parent of <code>i</code>. If <code>f[i] == i</code>, then <code>i</code> is the root of the set. If <code>f[i] != i</code>, then <code>i</code> is not the root of the set, and <code>f[i]</code> is the parent of <code>i</code>. To find the root, we implement a find() function, like so:</p>
-<pre tabindex="0"><code>int find(int x) {
-    return x == f[x] ? x : find(f[x]);
-}
-</code></pre><p>You may be wondering why do we need to to find the root of the set. The reason is that we can determine whether two elements are in the same set by comparing their roots. In other words, if <code>find(x) == find(y)</code>, then <code>x</code> and <code>y</code> are in the same set, as they have the same root.
-To put two elements into the same set, we can do as such:</p>
-<pre tabindex="0"><code>void merge(int x, int y) {
-    f[find(x)] = find(y);
-}
-</code></pre><p>This function merges the set of <code>x</code> and the set of <code>y</code> by setting the root of <code>x</code> to the root of <code>y</code>.
-For the example, we can solve it quite easily with disjoint-set:</p>
-<pre tabindex="0"><code>init();
-f[1] = 2;
-f[3] = 4;
-f[5] = 6;
-f[6] = 3;
-f[7] = 2;
-</code></pre><p>Then we can answer the questions:</p>
-<pre tabindex="0"><code>// 1. What&#39;s the minimum number of sets to fit all the elements?
-int cnt = 0;
-for (int i = 1; i &lt;= n; i++) {
-    if (f[i] == i) cnt++;
-}
-cout &lt;&lt; cnt &lt;&lt; endl;
-// 2. Are A and D in the same set?
-cout &lt;&lt; (find(1) == find(4)) &lt;&lt; endl;
-</code></pre><p>But, as you probably noticed, the find() function gets quite inefficient when the tree is deep. To solve this, we can use the union by rank and path compression optimization. The union by rank optimization is quite simple. We just need to maintain the rank of each element, and merge the set with the smaller rank to the set with the larger rank. The path compression optimization is also quite simple. When we find the root of an element, we can set the parent of all the elements on the path to the root. The implementation is as follows:</p>
-<pre tabindex="0"><code>int find(int x) {
-    return x == f[x] ? x : f[x] = find(f[x]);
-}
-</code></pre><p>This way, each time an element is added to a set, the set is flattened, and the tree is kept shallow. But is this all?
-Of course not.</p>
-<h1 id="optimization">Optimization:</h1>
-<p>We add an additional information to the disjoint-set: the size of the set. This way, we can merge the smaller set to the larger set. Why is this necessary? Let&rsquo;s take a look at the following example:</p>
-<pre tabindex="0"><code>1-&gt;2
- -&gt;3
-4-&gt;5-&gt;6
- -&gt;7
-</code></pre><p>If we merge 4 to 1, the tree will become:</p>
-<pre tabindex="0"><code>1-&gt;2
- -&gt;3
- -&gt;4-&gt;5-&gt;6
-    -&gt;7
-</code></pre><p>But if we merge 1 to 4, the tree will become:</p>
-<pre tabindex="0"><code>4-&gt;5-&gt;6
- -&gt;7
- -&gt;1-&gt;2
-    -&gt;3
-</code></pre><p>The first tree has the maximum depth of 4, while the second tree has the maximum depth of 3. This is why we need to merge the smaller set to the larger set - so that at its worst, the find() function wouldn&rsquo;t need to traverse as far.
-To tackle this, we alter the <code>f[]</code> array to store the size of the set as well as the root information. The idea is like such:</p>
-<ol>
-<li>If i is the root of the set, then <code>f[i]</code> is the negative value of the size of the set.</li>
-<li>If i is not the root of the set, then <code>f[i]</code> is the parent of i.</li>
-<li>When we merge, we merge the root of the smaller set to the root of the larger set, and update the size of the set.
-Notice we used negativity to distinguish the root from the non-root. The implementation is as follows:</li>
-</ol>
-<pre tabindex="0"><code>int f[N];
-void init() {
-    for (int i = 1; i &lt;= n; i++) f[i] = -1;
-}
-int find(int x) {
-    int t = x;
-    while(f[t] &gt; 0){
-        t = f[t];
-    }
-    while(x != t){
-        int tmp = f[x];
-        f[x] = t;
-        x = tmp;
-    }
-    return t;
-}
-void merge(int x, int y) {
-    x = find(x);
-    y = find(y);
-    if(x == y) return;
-    if (f[x] &lt; f[y]) {
-        f[x] += f[y];
-        f[y] = x;
-    } else {
-        f[y] += f[x];
-        f[x] = y;
-    }
-}
-</code></pre><p>Notice that instead of recursively calling the find() function, we use a while loop to find the root of the set. This is because recursion can be quite inefficient, as each layer of recursion adds to the stack.</p>
+        <p>It&rsquo;s only one day but&hellip;</p>
+<h1 id="context">Context:</h1>
+<p>Advent of Code 2024, day 3.</p>
+<p>First part:
+Given a string, find all substring that has the format of <code>mul(x,y)</code> where <code>x</code> and <code>y</code> are integers.
+What&rsquo;s the sum of all <code>x*y</code>?</p>
+<p>Second part:
+Given the same string, there are do&rsquo;s and don&rsquo;ts scattered around.
+You need to find the sum of all <code>x*y</code> that are not in the &ldquo;clause&rdquo; of <code>do()</code>s and <code>don't()</code>s.</p>
+<h1 id="part-1">Part 1:</h1>
+<p>Now immediately I thought of regex. I could just code regex in rust,
+but what&rsquo;s the fun? I can just use Neovim!</p>
+<p>The first part is very simple. I just need to find all the matches of <code>mul(x,y)</code> and capture
+<code>x</code> and <code>y</code> and sum them up.</p>
+<p>First, I have to extract all the <code>x</code> and <code>y</code> from the string.
+I selected all the lines, and typed:</p>
+<pre tabindex="0"><code>:&#39;&lt;,&#39;&gt;s/\v.{-}mul\((\d*),(\d*)\).{-}/\1 \2\r/g
+</code></pre><p><code>\v</code> is for <code>very magic mode</code>, which makes regex a bit simpler(not a lot).
+<code>.{-}</code> is for non-greedy match. Basically, it matches as few characters as possible, this
+prevents it from &ldquo;eating up&rdquo; the next <code>mul</code>.
+<code>\d*</code> is for matching digits.
+<code>\1</code> and <code>\2</code> are for capturing groups.
+<code>\r</code> is for better visualization. You&rsquo;re probably fine withouth it.</p>
+<p>Now this gives me something like this:</p>
+<pre tabindex="0"><code>594 203
+693 99
+225 584
+...
+494 553
+563 373
+675 891
+73 441
+182 313
+(]what()
+</code></pre><p>Now you&rsquo;ve probably noticed that there&rsquo;s a <code>what()</code> at the end. That&rsquo;s because since
+I used non-greedy match, characters after <code>mul</code> are not consumed. No problem, I can just delete
+that line easily with <code>dd</code>.</p>
+<p>The problem is how to multiply them. I decided to multiply the two numbers at each line first.
+We can do this easily with recoreded commands:</p>
+<pre tabindex="0"><code>qt_viw&#34;ayw&#34;by:let @c = string(str2nr(@a) * str2nr(@b))&lt;CR&gt;V@cpjq&#34;
+</code></pre><p>This is probably a bit much. Let&rsquo;s break it down:</p>
+<ul>
+<li><code>qt</code> starts recording a macro in register <code>t</code></li>
+<li><code>_</code> moves the cursor to the first character</li>
+<li><code>viw&quot;ay</code> selects the inner word and yanks it to register <code>a</code></li>
+<li><code>w&quot;by</code> moves to the next word and yanks it to register <code>b</code></li>
+<li><code>:let @c = string(str2nr(@a) * str2nr(@b))&lt;CR&gt;</code> multiplies the two numbers and stores it in register <code>c</code></li>
+<li><code>V@cp</code> pastes the result in the line</li>
+<li><code>jq</code> moves to the next line and stops recording
+Still with me? Now I can just type <code>@t</code> to multiply the next line. As the file has a total of 728
+lines, I just needed to type <code>727@t</code> to multiply all the lines.
+This got me:</li>
+</ul>
+<pre tabindex="0"><code>120582
+68607
+131400
+...
+273182
+209999
+601425
+32193
+56966
+</code></pre><p>Now that I have all the results, I just need to sum them up.
+I can do this with:</p>
+<pre tabindex="0"><code>ggqtviw&#34;ayddviw&#34;bydd:let @c = string(str2nr(@a) + str2nr(@b))&lt;CR&gt;&#34;@cPa&lt;Enter&gt;jq&#34;
+</code></pre><p>This is similar to the previous command, so I won&rsquo;t elaborate.
+After recording, I still had 727 lines, so I just typed <code>727@t</code> to sum them all up.
+The result is <code>183669043</code>. I typed into the input box and got the first star!</p>
+<h1 id="part-2">Part 2:</h1>
+<p>Now the second part is a bit more complicated. There&rsquo;s some sort of &lsquo;state&rsquo; managed by
+<code>do()</code> and <code>don't()</code>, and at the beginning of the string, the state is <code>true</code>. We only consider
+<code>mul(x,y)</code> when the state is <code>true</code>. Here&rsquo;s an example:</p>
+<pre tabindex="0"><code>xmul(2,4)&amp;mul[3,7]!^don&#39;t()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
+</code></pre><p>First, I concatenated all the lines, since the state can carry over to the next line:</p>
+<pre tabindex="0"><code>:%s/\n//g
+</code></pre><p>Now, now that I look back, the answer was correct because I was lucky. I shouldn&rsquo;t have done that,
+instead I should have used <code>:%s/\n/@/g</code> to replace the newline with <code>@</code>, so new <code>do()</code> and <code>don't()</code>
+won&rsquo;t form.</p>
+<p>My immediate thought is to match the <code>do()</code>s and <code>don't()</code>s. But at the start the state is <code>true</code>.
+Easy fix, I just manually appended a <code>do()</code> at the start of the string.
+Now let&rsquo;s find all the <code>mul(x,y)</code> that are inside the <code>do()</code> and <code>don't()</code>. Let&rsquo;s start by
+replacing all the <code>don't()</code> with <code>\r</code>. The idea is that all occurrences of <code>mul(x,y)</code> that are
+after <code>don't()</code> and have not encountered a <code>do()</code> are not considered. It&rsquo;ll make sense later.</p>
+<pre tabindex="0"><code>:%s/don&#39;t()/\r/g
+</code></pre><p>Now the string still don&rsquo;t make sense. That&rsquo;s ok. Now the problem is: In each line,
+until you meet a <code>do()</code>, all <code>mul(x,y)</code> are not considered. So let&rsquo;s expose all the
+lines that have <code>do()</code>, and move the <code>do()</code> to the beginning of the line, also append newline
+for clearity.</p>
+<pre tabindex="0"><code>:%s/\v.{-}(do\(\).*)/\1\r/g
+</code></pre><p>Now the string is starting to make sense:</p>
+<pre tabindex="0"><code>...
+do()[from() ,what()~mul(97,535);~mul(526,845)...
 
-        
-          <div class="blog-tags">
-            
-              
-              <a href="http://localhost:1313/tags/data-structure/">data-structure</a>&nbsp;
-            
-              
-              <a href="http://localhost:1313/tags/disjoint-set/">disjoint-set</a>&nbsp;
-            
-          </div>
+do()&#39;&amp;-&gt; why()mul(755,634)select()?[who()!whe...
+
+&gt;why()}(+)how()where()when()mul#where()mul(31...
+when()who();; where()^what()how()~mul(668,57)...
+from(), how()&lt;]^who();mul(629,290)what()mul(2...
+do()select()~~from()&gt;}mul(372,283)&gt;%why()/&lt;mu...
+...
+</code></pre><p>Notice now some line has <code>do()</code> at the beginning. These are the lines we care about.
+Now let&rsquo;s get rid of the line that doesn&rsquo;t have <code>do()</code> at the beginning.</p>
+<p>To do this we&rsquo;ll need the <code>:g</code> command. This basically runs a command on all lines that match a
+pattern. <code>:g!</code> is the opposite, it runs a command on all lines that don&rsquo;t match a pattern.
+Actually, <code>:g!</code> is the one we need.</p>
+<pre tabindex="0"><code>:%g!/do()/s/.//g
+</code></pre><p>Let&rsquo;s break it down:</p>
+<ul>
+<li><code>%</code> is the range, it means all lines</li>
+<li><code>g!</code> is the command that runs on all lines that don&rsquo;t match the pattern</li>
+<li><code>do()</code> is the pattern we&rsquo;re looking for. If the line doesn&rsquo;t have <code>do()</code>, the command following will run</li>
+<li><code>s/.//g</code> is the command that removes all characters in the line.
+Now I have some lines that are blank, and some lines that have <code>do()</code> at the beginning.
+You can probably change the command a bit to make it look nicer:</li>
+</ul>
+<pre tabindex="0"><code>...
+
+do()select()~~from()&gt;}mul(372,283)&gt;%why(...
+
+
+do():~ ~;*:{*mul*select()from(984,969)mu...
+
+do()from()+when()mul(753,641)~{ +mul(817...
+
+
+do()&gt;]&amp;&#39;* *,mul(531,698+)#where()who()(f...
+...
+</code></pre><p>Next I extracted all <code>mul(x, y)</code>, since they are all considered valid now:</p>
+<pre tabindex="0"><code>:%s/\v.{-}mul\((\d*),(\d*)\).{-}/\1 \2\r/g
+</code></pre><p>The result was:</p>
+<pre tabindex="0"><code>...
+478 963
+;}&lt;select(){$*[who()/
+
+285 888
+447 749
+@[?~how()&lt;#$where()how(895,368)
+
+600 918
+680 387
+...
+</code></pre><p>Similar to the first part, there are some garbage lines. This time there are multiple lines,
+so we have to use command:
+(Also, I got lucky because none of the garbage lines had digits at the start)</p>
+<pre tabindex="0"><code>:%s/\v^\D.*$\n//
+</code></pre><p>And now to get rid of the empty lines, I used:</p>
+<pre tabindex="0"><code>:%s/\v^\n//
+</code></pre><p>That left me with:</p>
+<pre tabindex="0"><code>594 203
+693 99
+225 584
+...
+713 682
+183 921
+357 475
+328 637
+920 871
+</code></pre><p>The rest is the same as the first part. I multiplied them all and summed them up.
+My result was: <code>59097164</code>.</p>
+
         
 
         
@@ -379,42 +427,42 @@ void merge(int x, int y) {
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f&amp;text=Disjoint-Set&amp;via=CoosisV" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f&amp;text=I%20did%20Advent%20of%20Code%20using%20neovim&amp;via=CoosisV" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f&amp;title=Disjoint-Set" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f&amp;title=I%20did%20Advent%20of%20Code%20using%20neovim" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f&amp;title=Disjoint-Set" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f&amp;title=I%20did%20Advent%20of%20Code%20using%20neovim" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f&amp;title=Disjoint-Set" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f&amp;title=I%20did%20Advent%20of%20Code%20using%20neovim" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdisjointset%2f&amp;description=Disjoint-Set" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fadventofcoderegex%2f&amp;description=I%20did%20Advent%20of%20Code%20using%20neovim" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -437,12 +485,12 @@ void merge(int x, int y) {
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="http://localhost:1313/posts/segmenttree/" data-toggle="tooltip" data-placement="top" title="Segment Tree">&larr; Previous Post</a>
+              <a href="http://localhost:1313/posts/vimsearchandreplace/" data-toggle="tooltip" data-placement="top" title="Neovim Search/Replace">&larr; Previous Post</a>
             </li>
           
           
             <li class="next">
-              <a href="http://localhost:1313/posts/goiterators/" data-toggle="tooltip" data-placement="top" title="Go Iterators">Next Post &rarr;</a>
+              <a href="http://localhost:1313/posts/nixfetchpypi/" data-toggle="tooltip" data-placement="top" title="Nix fetchPypi">Next Post &rarr;</a>
             </li>
           
         </ul>

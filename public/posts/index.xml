@@ -8,10 +8,24 @@
     <language>en-us</language>
     <managingEditor>coosislee@gmail.com (Coosis)</managingEditor>
     <webMaster>coosislee@gmail.com (Coosis)</webMaster>
-    <lastBuildDate>Fri, 06 Dec 2024 16:47:07 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2024 00:19:41 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Vimsearchandreplace</title>
+      <title>Nix fetchPypi</title>
+      <link>http://localhost:1313/posts/nixfetchpypi/</link>
+      <pubDate>Thu, 12 Dec 2024 00:19:41 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
+      <guid>http://localhost:1313/posts/nixfetchpypi/</guid>
+      <description>&lt;p&gt;Seriously, nix doc is so hard to find&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>I did Advent of Code using neovim</title>
+      <link>http://localhost:1313/posts/adventofcoderegex/</link>
+      <pubDate>Sun, 08 Dec 2024 20:13:22 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
+      <guid>http://localhost:1313/posts/adventofcoderegex/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s only one day but&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Neovim Search/Replace</title>
       <link>http://localhost:1313/posts/vimsearchandreplace/</link>
       <pubDate>Fri, 06 Dec 2024 16:47:07 +0800</pubDate><author>coosislee@gmail.com (Coosis)</author>
       <guid>http://localhost:1313/posts/vimsearchandreplace/</guid>
