@@ -2,6 +2,7 @@
 date = '2025-03-04T12:59:14+08:00'
 draft = false
 title = 'Rust Async Trait Problem'
+tags = ['rust', 'async', 'trait', 'async_trait', 'gat', 'generic associated types', 'dyn compatible', 'object safe']
 +++
 
 I didn't know there was a problem

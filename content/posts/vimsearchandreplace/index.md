@@ -2,6 +2,7 @@
 date = '2024-12-06T16:47:07+08:00'
 draft = false
 title = 'Neovim Search/Replace'
+tags = ['neovim', 'nvim', 'vim', 'search', 'replace', 'regex']
 +++
 
 Blazingly fast!!!!

@@ -2,6 +2,7 @@
 date = '2024-12-12T00:19:41+08:00'
 draft = false
 title = 'Nix fetchPypi'
+tags = ['nix', 'nixpkgs', 'fetchPypi', 'python', 'pypi']
 +++
 
 Seriously, nix doc is so hard to find...

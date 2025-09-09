@@ -2,6 +2,7 @@
 date = '2024-12-08T20:13:22+08:00'
 draft = false
 title = 'I did Advent of Code using neovim'
+tags = ['advent of code', 'aoc', 'neovim', 'nvim', 'vim', 'regex']
 +++
 
 It's only one day but...
