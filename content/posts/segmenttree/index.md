@@ -2,7 +2,7 @@
 title: "Segment Tree"
 date: 2024-01-04T20:08:59+08:00
 draft: false
-tag: ["Tree", "ALgorithm"]
+tags: ["Tree", "Algorithm", "Data Structure"]
 ---
 
 Data structure for storing information about intervals(very efficient btw).
