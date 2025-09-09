@@ -98,5 +98,7 @@
 
 {{- partial "head_custom.html" . }}
 {{- if not hugo.IsServer -}}
-  {{ template "_internal/google_analytics.html" . }}
+	{{ with site.Config.Services.Disqus.Shortname }}
+		{{ partial "disqus.html" . }}
+	{{ end }}
 {{- end -}}
