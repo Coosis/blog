@@ -1,4 +1,4 @@
-baseURL = 'https://coosis.github.io/'
+baseURL = 'https://blog.coosis.me/'
 languageCode = 'en-us'
 # title = "Coosis's Blog"
 theme = 'beautifulhugo'
