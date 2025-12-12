@@ -8,12 +8,11 @@ unsafe = true
 
 [Params.author]
   name = "Coosis"
-  website = "https://coosis.github.io/"
+  website = "https://blog.coosis.me/"
   email = "coosislee@gmail.com"
   github = "Coosis"
   twitter = "CoosisV"
   # linkedin = "username"
-  telegram = "Coosis"
 
 [Params]
   homeTitle = "Coosis's Blog"
