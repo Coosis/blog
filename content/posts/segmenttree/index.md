@@ -14,9 +14,20 @@ I AM A TERRIBLE PROGRAMMER SO DO NOT TAKE THINGS I SAY SERIOUSLY. I KNOW ABUSOLU
 # Definition
 The segment tree, is a data structure used for storing information about intervals or segments. It allows efficient altering of interval's or segments's information, querying about information on intervals or segments. In this blog I will keep it to intervals, the only reason of this is I only learnt about the interval part. Given a interval, we can create a tree to store information about this interval, like my very accurate and clear sketches: 
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/segmenttree/ske01.jpg" caption="Sketch 1" >}}
-    {{< figure src="posts/segmenttree/ske02.jpg" caption="Sketch 2" >}}
+    {{< figure 
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/segmenttree/ske01.jpg"
+        link="https://coosisv.cc/cdn-cgi/image/quality=high,format=auto/https://coosisv.cc/segmenttree/ske01.jpg"
+        size="1316x1347"
+        caption="Sketch 1" 
+    >}}
+    {{< figure 
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/segmenttree/ske02.jpg"
+        link="https://coosisv.cc/cdn-cgi/image/quality=high,format=auto/https://coosisv.cc/segmenttree/ske02.jpg"
+        size="1247x1289"
+        caption="Sketch 2" 
+    >}}
 {{< /gallery >}}
+
 
 # Building A Tree
 To build a segment tree, we need to know what's the interval we want. Say it's `[l, r]`. We use recursion method to recursively build the tree. After building a node, we build two children of it, further dividing its interval, until new nodes have their `l = r`. You can have a separate initialize array for initial value for the nodes.
@@ -59,7 +70,7 @@ void build(int p, int l, int r){
 	int mid = (l + r) >> 1;
 	build(p << 1, l, mid);
 	build(p << 1 | 1, mid + 1, r);
-	t[p].data = t[p << 1].data + t[p << 1 | 1].data
+	t[p].data = t[p << 1].data + t[p << 1 | 1].data;
 }
 
 //push down the lazy tag

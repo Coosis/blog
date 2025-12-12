@@ -98,7 +98,12 @@ When not using `very magic mode`:
 ```
 Please note that in `very magic mode`, `=` need escaping to match.
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/vimsearchandreplace/video1.mov" caption="Capture Group" >}}
+    {{< figure
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/vimsearchandreplace/video1.jpg"
+        link="https://coosisv.cc/vimsearchandreplace/video1.mov"
+        size="950x306"
+        caption="Capture Group"
+    >}}
 {{< /gallery >}}
 
 ## Real-world example 1: filtering dictionary
@@ -120,7 +125,12 @@ Select the dictionary, and use following command:
 :'<,'>s/\v\s+"\w+": "\w+",*\n/
 ```
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/vimsearchandreplace/video2.mov" caption="example 1" >}}
+    {{< figure
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/vimsearchandreplace/video2.jpg"
+        link="https://coosisv.cc/vimsearchandreplace/video2.mov"
+        size="950x444"
+        caption="example 1"
+    >}}
 {{< /gallery >}}
 
 ## Real-world example 2: refactoring code
@@ -141,7 +151,13 @@ Select the code, and use the following command:
 :'<,'>s/\vlet (\w+) \= (.+)/let \1 = { x in x + \2 }
 ```
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/vimsearchandreplace/video3.mov" caption="example 2" >}}
+    {{< figure
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/vimsearchandreplace/video3.jpg"
+        link="https://coosisv.cc/vimsearchandreplace/video3.mov"
+        size="950x244"
+        caption="example 2"
+    >}}
+
 {{< /gallery >}}
 Of course, more simpler instructions exist, such as directly replacing the constant after the equal sign. But capturing the variable names in front provides other benefits:
 Control their capitalization, or even add a prefix/suffix to them.
@@ -149,6 +165,11 @@ Control their capitalization, or even add a prefix/suffix to them.
 :'<,'>s/\vlet (\w+) \= (.+)/let \U\1\E = { x in x + \2 }
 ```
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/vimsearchandreplace/video4.mov" caption="example 3" >}}
+    {{< figure
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/vimsearchandreplace/video4.jpg"
+        link="https://coosisv.cc/vimsearchandreplace/video4.mov"
+        size="1340x244"
+        caption="example 3"
+    >}}
 {{< /gallery >}}
 

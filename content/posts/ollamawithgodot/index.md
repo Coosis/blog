@@ -96,7 +96,22 @@ func _on_button_pressed():
 
 # Result:
 {{< gallery caption-effect="fade" >}}
-    {{< figure src="posts/ollamawithgodot/res1.png" caption="Result 1" >}}
-    {{< figure src="posts/ollamawithgodot/res2.png" caption="Result 2" >}}
-    {{< figure src="posts/ollamawithgodot/res2.png" caption="Result 3" >}}
+    {{< figure 
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/ollamawithgodot/res1.png"
+        link="https://coosisv.cc/cdn-cgi/image/quality=high,format=auto/https://coosisv.cc/ollamawithgodot/res1.png"
+        size="1016x620"
+        caption="Result 1" 
+    >}}
+    {{< figure 
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/ollamawithgodot/res2.png"
+        link="https://coosisv.cc/cdn-cgi/image/quality=high,format=auto/https://coosisv.cc/ollamawithgodot/res2.png"
+        size="964x594"
+        caption="Result 2" 
+    >}}
+    {{< figure 
+        thumb="https://coosisv.cc/cdn-cgi/image/width=480,h_480,quality=low,format=auto/https://coosisv.cc/ollamawithgodot/res3.png"
+        link="https://coosisv.cc/cdn-cgi/image/quality=high,format=auto/https://coosisv.cc/ollamawithgodot/res3.png"
+        size="958x600"
+        caption="Result 3" 
+    >}}
 {{< /gallery >}}

@@ -3,6 +3,9 @@ languageCode = 'en-us'
 # title = "Coosis's Blog"
 theme = 'beautifulhugo'
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [Params.author]
   name = "Coosis"
   website = "https://coosis.github.io/"
