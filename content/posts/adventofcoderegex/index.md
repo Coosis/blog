@@ -68,6 +68,7 @@ This is probably a bit much. Let's break it down:
 - `:let @c = string(str2nr(@a) * str2nr(@b))<CR>` multiplies the two numbers and stores it in register `c`
 - `V@cp` pastes the result in the line
 - `jq` moves to the next line and stops recording
+
 Still with me? Now I can just type `@t` to multiply the next line. As the file has a total of 728 
 lines, I just needed to type `727@t` to multiply all the lines. 
 This got me:
